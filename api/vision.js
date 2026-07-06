@@ -5,7 +5,7 @@
 // NOTA: el nombre del modelo vision de Groq cambia de tanto en tanto
 // (deprecations frecuentes). Si este endpoint empieza a devolver error de
 // modelo no encontrado, revisá el modelo vision vigente en
-// https://console.groq.com/docs/models y actualizá GROQ_VISION_MODEL abajo
+// https://console.groq.com/docs/vision y actualizá GROQ_VISION_MODEL abajo
 // o la variable de entorno del mismo nombre.
 
 export default async function handler(req, res) {
@@ -18,12 +18,25 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Falta configurar GROQ_VISION_API_KEY en Vercel' });
   }
 
-  const model = process.env.GROQ_VISION_MODEL || 'llama-3.2-90b-vision-preview';
+  // Modelo vision vigente en Groq (verificado julio 2026).
+  // Alternativa: 'qwen/qwen3.6-27b'
+  const model = process.env.GROQ_VISION_MODEL || 'meta-llama/llama-4-scout-17b-16e-instruct';
 
   try {
     const { image, mimeType, prompt } = req.body || {};
     if (!image || !prompt) {
       return res.status(400).json({ error: 'Faltan "image" o "prompt" en el body' });
+    }
+
+    // Groq limita a 4MB el tamaño de un request con imagen en base64.
+    // El string base64 pesa ~33% mas que el binario original, asi que
+    // chequeamos contra ese limite antes de pegarle a la API.
+    const approxBytes = Math.ceil((image.length * 3) / 4);
+    const MAX_BASE64_BYTES = 4 * 1024 * 1024;
+    if (approxBytes > MAX_BASE64_BYTES) {
+      return res.status(413).json({
+        error: 'La imagen es muy pesada para el analisis (limite 4MB). Probá con una foto mas liviana o comprimida.'
+      });
     }
 
     const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
