@@ -1,0 +1,2711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210259/IMG_8454_m2qoq2_jsg1cz.png">
+<title>SF Precision — Certified Professional Auto Detailing · San Juan, PR</title>
+<meta name="description" content="SF Precision: preservación de vehículos de nivel concurso en San Juan, Puerto Rico. Corrección profesional de pintura, protección cerámica y graphene, y Liquid PPF. ADS & NanoPRO Certified. Solo con cita previa.">
+<meta name="keywords" content="auto detailing San Juan, paint correction Puerto Rico, ceramic coating, graphene coating, liquid PPF, NanoPRO, ADS certified detailer, SF Precision">
+<meta property="og:title" content="SF Precision — Precision is Permanent.">
+<meta property="og:description" content="Preservación, corrección y protección automotriz de nivel concurso. San Juan, Puerto Rico.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+/* ============================================================
+   SF PRECISION — DESIGN TOKENS
+   Palette: near-black + graphite glass + electric blue signal.
+   Display: Space Grotesk (engineered, precise) · Body: Inter
+   Mono: JetBrains Mono (data / telemetry labels)
+   ============================================================ */
+:root{
+  --bg:#06070a;
+  --bg-alt:#0a0c11;
+  --bg-rise:#0d0f15;
+  --surface:rgba(255,255,255,0.035);
+  --surface-strong:rgba(255,255,255,0.065);
+  --line:rgba(255,255,255,0.09);
+  --line-soft:rgba(255,255,255,0.05);
+  --text:#eef1f6;
+  --text-dim:#8d94a4;
+  --text-faint:#555d6b;
+  --blue:#22c3e8;
+  --blue-light:#7fe5f7;
+  --blue-deep:#0a3a47;
+  --blue-glow:rgba(34,195,232,0.38);
+  --ok:#3ddc97;
+  --warn:#e0a95c;
+  --danger:#e0725c;
+  --radius-lg:22px;
+  --radius-md:14px;
+  --radius-sm:9px;
+  --ease:cubic-bezier(.16,.84,.44,1);
+  --maxw:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
+}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+::selection{background:var(--blue-deep);color:var(--blue-light);}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:#20242c;border-radius:10px;}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px;}
+
+.container{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--blue-light);
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:18px;
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--blue);display:inline-block;}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.015em;color:var(--text);}
+.section{padding:150px 0;position:relative;}
+.section-alt{background:var(--bg-alt);}
+.section-head{max-width:640px;margin-bottom:64px;}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+#experiencias{position:relative;isolation:isolate;overflow:hidden;background:var(--bg-alt);}
+#experiencias::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280843/IMG_8493_jygwhh.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#experiencias::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#adicionales{position:relative;isolation:isolate;overflow:hidden;background:var(--bg);}
+#adicionales::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280844/IMG_8494_qzbvu0.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#adicionales::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#asesor-rapido{position:relative;isolation:isolate;overflow:hidden;background:var(--bg-alt);}
+#asesor-rapido::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280846/IMG_8486_aiyhuz.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#asesor-rapido::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#diagnostico{position:relative;isolation:isolate;overflow:hidden;background:var(--bg-alt);}
+#diagnostico::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280843/IMG_8493_jygwhh.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#diagnostico::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#antes-despues{position:relative;isolation:isolate;overflow:hidden;background:var(--bg);}
+#antes-despues::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210124/IMG_8465_vbywq8.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#antes-despues::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#proceso{position:relative;isolation:isolate;overflow:hidden;background:var(--bg);}
+#proceso::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280852/IMG_8476_ge9ejy.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#proceso::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#certificaciones{position:relative;isolation:isolate;overflow:hidden;background:var(--bg);}
+#certificaciones::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280850/IMG_8479_pawk0x.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#certificaciones::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#precios{position:relative;isolation:isolate;overflow:hidden;}
+#precios::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210119/IMG_8462_racicw.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#precios::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#cobertura{position:relative;isolation:isolate;overflow:hidden;background:var(--bg);}
+#cobertura::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210131/IMG_8466_sn6uue.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#cobertura::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+
+#faq{position:relative;isolation:isolate;overflow:hidden;}
+#faq::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210117/IMG_8469_uucmzc.jpg');
+  background-size:cover;background-position:center;background-attachment:scroll;
+  filter:saturate(.8) contrast(1.05) brightness(.42);
+}
+#faq::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(6,7,10,.72) 0%, rgba(6,7,10,.55) 18%, rgba(6,7,10,.6) 60%, rgba(6,7,10,.85) 100%);
+}
+.h2{font-size:clamp(32px,4.2vw,50px);line-height:1.08;}
+.lead{color:var(--text-dim);font-size:17.5px;max-width:520px;margin-top:18px;}
+.section-head.center .lead{margin-left:auto;margin-right:auto;}
+
+/* glass surface used throughout */
+.glass{
+  background:linear-gradient(165deg,rgba(255,255,255,0.045),rgba(255,255,255,0.015));
+  border:1px solid var(--line);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  position:relative;
+}
+.glass::before{content:'';position:absolute;top:0;left:6%;right:6%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 32px;border-radius:100px;font-weight:600;font-size:14px;
+  letter-spacing:.02em;transition:transform .45s var(--ease),box-shadow .45s var(--ease),background .3s,border-color .3s;
+  white-space:nowrap;
+}
+.btn-blue{background:linear-gradient(135deg,var(--blue-light),var(--blue));color:#04070f;box-shadow:0 8px 30px -6px var(--blue-glow);}
+.btn-blue:hover{transform:translateY(-2px);box-shadow:0 14px 42px -6px var(--blue-glow);}
+.btn-outline{border:1px solid var(--line);color:var(--text);background:var(--surface);backdrop-filter:blur(6px);}
+.btn-outline:hover{border-color:var(--blue);transform:translateY(-2px);}
+.btn-sm{padding:12px 22px;font-size:13px;}
+.btn-block{width:100%;}
+.icon{width:22px;height:22px;display:block;flex-shrink:0;}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:26px 0;transition:padding .4s var(--ease),background .4s var(--ease),border-color .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{padding:16px 0;background:rgba(6,7,10,0.8);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);}
+.nav .container{display:flex;align-items:center;justify-content:space-between;max-width:100%;padding:0 40px;}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:-0.01em;}
+.nav-logo .mark{width:48px;height:48px;position:relative;flex-shrink:0;}
+.nav-logo small{display:block;font-family:'JetBrains Mono',monospace;font-weight:400;font-size:9px;letter-spacing:.18em;color:var(--text-faint);margin-top:1px;}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{font-size:13.5px;color:var(--text-dim);transition:color .3s;position:relative;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{display:flex;align-items:center;gap:22px;}
+.nav-right{display:flex;align-items:center;gap:26px;}
+.nav-social{display:flex;align-items:center;gap:18px;}
+.nav-social a{color:var(--text-dim);transition:color .3s,transform .3s;display:flex;padding:4px;}
+.nav-social a:hover{color:var(--blue-light);transform:translateY(-2px);}
+.nav-social svg{width:18px;height:18px;}
+.nav-burger{display:block;width:30px;height:22px;position:relative;cursor:pointer;}
+.nav-burger::after{content:'';position:absolute;inset:-14px;}
+.nav-burger span{position:absolute;left:0;right:0;height:1.5px;background:var(--text);transition:transform .35s var(--ease),opacity .35s;}
+.nav-burger span:nth-child(1){top:0;}
+.nav-burger span:nth-child(2){top:50%;transform:translateY(-50%);}
+.nav-burger span:nth-child(3){bottom:0;}
+.nav-burger.open span:nth-child(1){transform:translateY(10px) rotate(45deg);}
+.nav-burger.open span:nth-child(2){opacity:0;}
+.nav-burger.open span:nth-child(3){transform:translateY(-10px) rotate(-45deg);}
+.menu-backdrop{
+  position:fixed;inset:0;background:rgba(3,4,8,0.6);backdrop-filter:blur(2px);z-index:98;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+}
+.menu-backdrop.open{opacity:1;pointer-events:auto;}
+.mobile-menu{
+  position:fixed;inset:0;background:var(--bg);z-index:99;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;
+  transform:translateY(-100%);transition:transform .5s var(--ease);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{font-family:'Space Grotesk',sans-serif;font-size:22px;color:var(--text);}
+@media (min-width:769px){
+  .mobile-menu{
+    inset:0 0 0 auto;left:auto;width:400px;max-width:88vw;
+    justify-content:flex-start;align-items:flex-start;gap:22px;
+    padding:120px 50px 50px;
+    border-left:1px solid var(--line);
+    box-shadow:-30px 0 80px -20px rgba(0,0,0,0.6);
+    transform:translateX(100%);
+  }
+  .mobile-menu.open{transform:translateX(0);}
+  .mobile-menu a{font-size:19px;}
+  .mobile-menu .btn{align-self:flex-start;}
+}
+
+/* ============ HERO (mobile-first) ============ */
+/* Base = mobile. El video es el protagonista; el contenido lo acompaña. */
+.hero{
+  position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;
+  overflow:hidden;
+  padding-top:calc(96px + env(safe-area-inset-top,0px));
+  padding-bottom:calc(28px + env(safe-area-inset-bottom,0px));
+}
+.hero-video-wrap{position:absolute;inset:0;z-index:-1;overflow:hidden;background:var(--bg);}
+.hero-video{width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:saturate(0.9) contrast(1.05) brightness(0.8);}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+/* Mobile: overlay mínimo, concentrado abajo donde vive el texto */
+.hero-bg .grad-1{position:absolute;inset:0;background:
+  radial-gradient(ellipse 90% 50% at 50% 6%, rgba(34,195,232,0.14), transparent 62%),
+  linear-gradient(180deg, rgba(6,7,10,0) 0%, rgba(6,7,10,0.05) 38%, rgba(6,7,10,0.55) 66%, rgba(5,6,8,0.88) 100%);
+}
+.hero-sheen{
+  position:absolute;inset:-20%;
+  background:linear-gradient(115deg, transparent 35%, rgba(122,166,255,0.05) 48%, rgba(122,166,255,0.1) 50%, rgba(122,166,255,0.05) 52%, transparent 65%);
+  background-size:200% 200%;
+  animation:heroSheen 9s ease-in-out infinite;
+  mix-blend-mode:screen;
+}
+@keyframes heroSheen{0%{background-position:120% 0%;}50%{background-position:0% 100%;}100%{background-position:120% 0%;}}
+.hero-glow,.hero-noise,.hero-particles{display:none;}
+.hero-content{position:relative;z-index:2;max-width:100%;text-align:left;margin:0;}
+.hero .eyebrow{font-size:10.5px;letter-spacing:.16em;margin-bottom:14px;}
+.hero .eyebrow::before{width:16px;}
+.hero-title{font-size:clamp(40px,11.5vw,60px);line-height:1.01;letter-spacing:-0.02em;color:var(--text);}
+.hero-title .htw{display:inline;font:inherit;letter-spacing:inherit;color:inherit;}
+.hero-title .accent{color:transparent;background:linear-gradient(120deg,var(--blue-light),var(--blue) 60%);-webkit-background-clip:text;background-clip:text;}
+.hero-sub{margin-top:18px;font-size:15.5px;line-height:1.5;color:var(--text-dim);max-width:100%;}
+.hero-sub-full{display:none;}
+.hero-ctas{display:flex;flex-direction:column;gap:12px;margin-top:30px;width:100%;}
+.hero-ctas .btn{width:100%;text-align:center;justify-content:center;}
+.hero-trust{
+  position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;margin-top:34px;width:100%;
+  padding-top:22px;border-top:1px solid var(--line-soft);
+}
+.trust-item{display:flex;align-items:center;gap:9px;}
+.trust-item svg{width:17px;height:17px;color:var(--blue-light);flex-shrink:0;}
+.trust-label{font-size:11.5px;color:var(--text-dim);letter-spacing:.01em;line-height:1.3;}
+.trust-label b{color:var(--text);font-weight:600;}
+.scroll-cue{display:none;}
+
+/* Desktop / tablet: recupera composición horizontal amplia + evolución premium */
+@media (min-width:769px){
+  .hero{min-height:100vh;justify-content:center;padding-top:120px;padding-bottom:0;}
+  .hero-video{object-position:center 30%;}
+  .hero-bg .grad-1{background:
+    radial-gradient(ellipse 62% 55% at 78% 18%, rgba(34,195,232,0.20), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 15% 92%, rgba(34,195,232,0.08), transparent 60%),
+    linear-gradient(90deg, rgba(4,5,7,0.92) 0%, rgba(6,7,10,0.72) 34%, rgba(8,9,12,0.34) 62%, rgba(9,10,13,0.14) 100%),
+    linear-gradient(180deg,rgba(5,6,8,0.5) 0%, rgba(7,8,11,0.6) 55%, rgba(9,10,14,0.82) 100%);
+  }
+  .hero-sheen{background:linear-gradient(115deg, transparent 35%, rgba(122,166,255,0.07) 48%, rgba(122,166,255,0.15) 50%, rgba(122,166,255,0.07) 52%, transparent 65%);}
+
+  /* Capa de profundidad: glow azul controlado detrás del contenido */
+  .hero-glow{
+    display:block;position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse 48% 62% at 24% 52%, rgba(34,195,232,0.16), transparent 72%);
+    mix-blend-mode:screen;
+    animation:glowBreathe 8s ease-in-out infinite;
+    will-change:transform;
+  }
+  @keyframes glowBreathe{0%,100%{opacity:.75;}50%{opacity:1;}}
+
+  /* Capa de profundidad: noise muy sutil, textura fílmica */
+  .hero-noise{
+    display:block;position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size:160px 160px;
+  }
+
+  /* Capa de profundidad: micro-partículas flotando */
+  .hero-particles{display:block;position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;}
+  .hero-particle{
+    position:absolute;bottom:-6px;width:3px;height:3px;border-radius:50%;
+    background:var(--blue-light);box-shadow:0 0 6px 1px var(--blue-glow);opacity:0;
+    animation:particleFloat linear infinite;
+  }
+  @keyframes particleFloat{
+    0%{transform:translateY(0) translateX(0);opacity:0;}
+    8%{opacity:.55;}
+    92%{opacity:.3;}
+    100%{transform:translateY(-360px) translateX(var(--drift,14px));opacity:0;}
+  }
+
+  .hero-content{max-width:660px;}
+  .hero .eyebrow{font-size:11.5px;letter-spacing:.22em;margin-bottom:20px;animation:heroIn .9s var(--ease) .1s both;}
+  .hero .eyebrow::before{width:22px;}
+
+  /* Tipografía editorial: peso y escala distintos por línea */
+  .hero-title{line-height:.96;display:flex;flex-direction:column;align-items:flex-start;}
+  .title-br{display:none;}
+  .hero-title .htw-1{font-size:clamp(50px,7.4vw,92px);font-weight:600;letter-spacing:-0.025em;animation:heroIn .9s var(--ease) .22s both;}
+  .hero-title .htw-2{
+    font-size:clamp(19px,1.9vw,25px);font-weight:400;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--text-dim);margin:6px 0 2px 3px;animation:heroIn .9s var(--ease) .32s both;
+  }
+  .hero-title .htw-3{font-size:clamp(56px,8.6vw,116px);font-weight:600;letter-spacing:-0.025em;animation:heroIn .9s var(--ease) .42s both;}
+  @keyframes heroIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+
+  .hero-sub{margin-top:28px;font-size:18.5px;max-width:480px;animation:heroIn .9s var(--ease) .56s both;}
+  .hero-sub-mobile{display:none;}
+  .hero-sub-full{display:block;}
+  .hero-ctas{flex-direction:row;gap:16px;margin-top:44px;width:auto;animation:heroIn .9s var(--ease) .68s both;}
+  .hero-ctas .btn{width:auto;}
+
+  /* Botones: presencia premium */
+  .hero-video-wrap{transition:transform .5s cubic-bezier(.16,.84,.44,1);}
+  .hero-glow{transition:transform .6s cubic-bezier(.16,.84,.44,1);}
+  .hero-ctas .btn{transition:transform .15s ease-out,box-shadow .45s var(--ease),background .3s,border-color .3s;}
+  .hero-ctas .btn-blue{
+    padding:18px 36px;position:relative;overflow:hidden;
+  }
+  .hero-ctas .btn-blue::before{
+    content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.35),transparent 60%);
+    opacity:.5;mix-blend-mode:overlay;pointer-events:none;
+  }
+  .hero-ctas .btn-outline{padding:18px 34px;background:var(--surface);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+  .hero-ctas .btn-outline:hover{background:var(--surface-strong);}
+
+  /* Barra de confianza: pieza de interfaz glass, no un footer */
+  .hero-trust{
+    display:flex;gap:0;margin-top:64px;flex-wrap:wrap;padding:18px 30px;border-top:none;
+    width:fit-content;max-width:100%;
+    background:linear-gradient(165deg,rgba(255,255,255,0.045),rgba(255,255,255,0.015));
+    border:1px solid var(--line);border-radius:100px;
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    animation:heroIn .9s var(--ease) .8s both;
+  }
+  .trust-item{padding:0 26px 0 0;position:relative;}
+  .trust-item:not(:last-child)::after{
+    content:'';position:absolute;right:13px;top:50%;transform:translateY(-50%);
+    width:1px;height:20px;background:var(--line);
+  }
+  .trust-item svg{width:19px;height:19px;}
+  .trust-label{font-size:12.5px;}
+
+  /* Scroll indicator premium */
+  .scroll-cue{
+    display:flex;position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;
+    flex-direction:column;align-items:center;gap:10px;animation:heroInFade 1.2s ease .95s both;
+  }
+  @keyframes heroInFade{from{opacity:0;}to{opacity:1;}}
+  .scroll-track{position:relative;width:1px;height:32px;background:var(--line-soft);overflow:hidden;}
+  .scroll-dot{
+    position:absolute;left:50%;top:0;width:5px;height:5px;margin-left:-2px;border-radius:50%;
+    background:var(--blue-light);box-shadow:0 0 8px var(--blue-glow);
+    animation:scrollDot 2.4s ease-in-out infinite;
+  }
+  .scroll-label{
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:var(--text-faint);
+  }
+  @keyframes scrollDot{0%{top:0;opacity:0;}18%{opacity:1;}82%{opacity:1;}100%{top:100%;opacity:0;}}
+}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(36px);}
+
+/* ============ POSITIONING STRIP ============ */
+.position-strip{padding:110px 0;text-align:center;position:relative;overflow:hidden;}
+.position-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 30%, rgba(34,195,232,.10), transparent 65%);}
+.position-strip .not-list{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--text-faint);margin-bottom:34px;position:relative;z-index:1;}
+.position-strip .not-list span{text-decoration:line-through;text-decoration-color:rgba(224,114,92,.55);}
+.position-strip h2{font-size:clamp(28px,4.6vw,46px);max-width:900px;margin:0 auto;position:relative;z-index:1;line-height:1.2;}
+.position-strip h2 em{font-style:normal;color:var(--blue-light);}
+.position-strip .yes-list{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:38px;position:relative;z-index:1;}
+.yes-chip{border:1px solid var(--line);background:var(--surface);border-radius:100px;padding:10px 20px;font-size:13px;color:var(--text-dim);display:flex;align-items:center;gap:8px;}
+.yes-chip svg{width:14px;height:14px;color:var(--blue-light);}
+
+/* ============ EXPERIENCES ============ */
+.exp-row{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center;
+  padding:64px 48px;margin-top:24px;border-radius:var(--radius-lg);
+}
+.exp-row:first-child{margin-top:0;}
+.exp-row::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:var(--exp-bg);background-size:cover;background-position:center;
+  filter:saturate(.82) contrast(1.06) brightness(.5);
+  transform:scale(1.01);
+}
+.exp-row::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(100deg, rgba(6,7,10,.96) 8%, rgba(6,7,10,.88) 34%, rgba(6,7,10,.52) 64%, rgba(6,7,10,.3) 100%),
+    linear-gradient(180deg, rgba(6,7,10,.1) 0%, rgba(6,7,10,.4) 100%);
+}
+/* section with a superimposed photo background (vignette fade top/bottom into base bg) */
+.section-bg-photo{position:relative;isolation:isolate;overflow:hidden;}
+.section-bg-photo::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:var(--photo-bg);background-size:cover;background-position:center;
+  filter:saturate(.82) contrast(1.06) brightness(.5);
+  transform:scale(1.01);
+}
+.section-bg-photo::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(100deg, rgba(6,7,10,.96) 8%, rgba(6,7,10,.88) 34%, rgba(6,7,10,.52) 64%, rgba(6,7,10,.3) 100%),
+    linear-gradient(180deg, rgba(6,7,10,.1) 0%, rgba(6,7,10,.4) 100%);
+}
+.exp-num{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--blue-light);margin-bottom:18px;display:block;}
+.exp-row h3{font-size:clamp(26px,3.2vw,38px);margin-bottom:16px;}
+.exp-row p.exp-text{color:var(--text-dim);font-size:15.5px;max-width:460px;margin-bottom:26px;}
+.exp-tags{display:flex;gap:10px;flex-wrap:wrap;}
+.exp-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-dim);border:1px solid var(--line);padding:7px 14px;border-radius:100px;background:rgba(6,7,10,.35);}
+.exp-visual{border-radius:var(--radius-lg);padding:36px;min-height:320px;}
+
+/* Experience 01 — maintenance checklist */
+.maint-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.maint-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line-soft);border-radius:var(--radius-sm);background:var(--surface);font-size:13.5px;color:var(--text-dim);}
+.maint-item svg{width:16px;height:16px;color:var(--blue-light);flex-shrink:0;}
+
+/* Experience 02 — correction bars (signature diagram) */
+.corr-tabs{display:flex;gap:8px;margin-bottom:26px;}
+.corr-tab{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.06em;padding:9px 16px;border-radius:100px;border:1px solid var(--line);color:var(--text-dim);transition:.3s;}
+.corr-tab.active{border-color:var(--blue);color:var(--blue-light);background:rgba(34,195,232,.08);}
+.corr-bars{display:flex;flex-direction:column;gap:16px;}
+.corr-bar-row{display:grid;grid-template-columns:120px 1fr 42px;align-items:center;gap:14px;}
+.corr-bar-label{font-size:12.5px;color:var(--text-dim);}
+.corr-bar-track{height:8px;border-radius:100px;background:rgba(255,255,255,.06);overflow:hidden;position:relative;}
+.corr-bar-fill{height:100%;border-radius:100px;width:0%;background:linear-gradient(90deg,var(--blue-deep),var(--blue),var(--blue-light));transition:width 1.1s var(--ease);}
+.corr-bar-pct{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-light);text-align:right;}
+.corr-note{margin-top:20px;font-size:12.5px;color:var(--text-faint);border-top:1px solid var(--line-soft);padding-top:16px;}
+.corr-price{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-light);letter-spacing:.04em;}
+
+/* Experience 03 — ceramic benefits */
+.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.benefit-card{border:1px solid var(--line-soft);border-radius:var(--radius-sm);background:var(--surface);padding:20px;}
+.benefit-card .benefit-icon{width:34px;height:34px;border-radius:50%;border:1px solid var(--blue-deep);display:flex;align-items:center;justify-content:center;color:var(--blue-light);margin-bottom:14px;}
+.benefit-card h4{font-size:14.5px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;}
+.benefit-card p{font-size:12.5px;color:var(--text-dim);}
+
+/* Experience 04 — permanent protection comparison */
+.perm-compare{display:flex;flex-direction:column;gap:10px;}
+.perm-row{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:10px;align-items:center;padding:12px 14px;border-radius:var(--radius-sm);font-size:12.5px;}
+.perm-row.head{color:var(--text-faint);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;}
+.perm-row:not(.head){background:var(--surface);border:1px solid var(--line-soft);color:var(--text-dim);}
+.perm-row b{color:var(--text);font-weight:600;}
+.perm-check{color:var(--blue-light);}
+.perm-dash{color:var(--text-faint);}
+
+/* ============ EXTRA SERVICES ============ */
+.extra-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.extra-card{
+  border:1px solid var(--line-soft);border-radius:var(--radius-md);padding:28px 24px;background:var(--surface);
+  transition:transform .45s var(--ease),border-color .35s,background .35s;position:relative;overflow:hidden;
+}
+.extra-card:hover{transform:translateY(-6px);border-color:var(--blue-deep);background:var(--surface-strong);}
+.extra-card .extra-icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--blue-deep);display:flex;align-items:center;justify-content:center;color:var(--blue-light);margin-bottom:18px;}
+.extra-card h4{font-size:15.5px;font-weight:600;font-family:'Inter',sans-serif;margin-bottom:8px;}
+.extra-card p{font-size:13px;color:var(--text-dim);}
+
+/* ============ NEED SELECTOR (interactive) ============ */
+.need-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:36px;}
+.need-btn{
+  border:1px solid var(--line);border-radius:var(--radius-md);padding:24px 16px;text-align:center;background:var(--surface);
+  transition:.35s var(--ease);display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.need-btn svg{width:26px;height:26px;color:var(--blue-light);}
+.need-btn span{font-size:13px;color:var(--text-dim);}
+.need-btn:hover{border-color:var(--blue);transform:translateY(-4px);}
+.need-btn.active{border-color:var(--blue);background:rgba(34,195,232,.08);}
+.need-btn.active span{color:var(--text);}
+.need-result{
+  border:1px solid var(--blue-deep);background:rgba(34,195,232,.06);border-radius:var(--radius-lg);
+  padding:36px 40px;display:none;
+}
+.need-result.visible{display:flex;gap:26px;align-items:center;flex-wrap:wrap;}
+.need-result-icon{width:56px;height:56px;border-radius:50%;background:rgba(34,195,232,.14);border:1px solid var(--blue-deep);display:flex;align-items:center;justify-content:center;color:var(--blue-light);flex-shrink:0;}
+.need-result-icon svg{width:26px;height:26px;}
+.need-result-text{flex:1;min-width:220px;}
+.need-result-text .tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:var(--blue-light);margin-bottom:6px;display:block;}
+.need-result-text h4{font-size:19px;margin-bottom:6px;}
+.need-result-text p{font-size:13.5px;color:var(--text-dim);}
+
+/* ============ BEFORE / AFTER ============ */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.ba{display:flex;flex-direction:column;gap:16px;}
+.ba-frame{
+  position:relative;aspect-ratio:4/3;border-radius:var(--radius-md);overflow:hidden;
+  background:linear-gradient(160deg,#101318,#0a0b0e);border:1px solid var(--line);cursor:grab;
+  touch-action:none;user-select:none;
+}
+.ba-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.ba-layer img{width:100%;height:100%;object-fit:cover;display:block;}
+.ba-before{z-index:1;filter:grayscale(.35) brightness(.72) contrast(.96);}
+.ba-after{z-index:2;clip-path:inset(0 0 0 var(--x,50%));filter:saturate(1.15) brightness(1.05) drop-shadow(0 14px 26px rgba(0,0,0,.5));}
+.ba-after::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 30%, rgba(122,166,255,.18) 48%, transparent 64%);
+  background-size:220% 220%;animation:heroSheen 6s ease-in-out infinite;mix-blend-mode:screen;
+}
+.ba-tag{position:absolute;top:14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;
+  padding:5px 11px;border-radius:100px;backdrop-filter:blur(6px);z-index:3;}
+.ba-tag-before{left:14px;background:rgba(0,0,0,.4);color:var(--text-dim);border:1px solid var(--line);}
+.ba-tag-after{right:14px;background:rgba(34,195,232,.18);color:var(--blue-light);border:1px solid var(--blue-deep);}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:0;z-index:4;pointer-events:none;}
+.ba-handle-line{position:absolute;top:0;bottom:0;left:0;width:1.5px;background:rgba(255,255,255,.7);}
+.ba-handle-grab{
+  position:absolute;top:50%;left:0;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue-light),var(--blue));display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+}
+.ba-handle-grab svg{width:16px;height:16px;color:#04070f;}
+.ba-caption{font-size:14px;color:var(--text-dim);text-align:center;}
+.gallery-note{margin-top:28px;font-size:12px;color:var(--text-faint);text-align:center;}
+
+/* ============ FEATURED WORK / TRABAJOS REALIZADOS ============ */
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.work-card{
+  border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--line);
+  background:var(--surface);display:flex;flex-direction:column;
+  transition:transform .5s var(--ease),border-color .5s var(--ease),background .5s;
+}
+.work-card:hover{transform:translateY(-6px);border-color:var(--blue-deep);background:var(--surface-strong);}
+.work-photo{aspect-ratio:4/3;overflow:hidden;position:relative;}
+.work-photo img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+.work-card:hover .work-photo img{transform:scale(1.06);}
+.work-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,7,10,.55) 0%,transparent 45%);}
+.work-tag{
+  position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);background:rgba(6,7,10,.55);
+  border:1px solid var(--blue-deep);border-radius:100px;padding:5px 10px;backdrop-filter:blur(6px);z-index:2;
+}
+.work-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.work-vehicle{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--text);}
+.work-service{font-size:12.5px;color:var(--text-dim);}
+.work-result{
+  font-size:12.5px;color:var(--blue-light);border-top:1px solid var(--line-soft);padding-top:10px;
+  margin-top:auto;line-height:1.5;
+}
+.work-cta{
+  margin-top:14px;width:100%;justify-content:space-between;padding:12px 18px;font-size:12.5px;
+}
+.work-cta svg{width:14px;height:14px;transition:transform .3s var(--ease);}
+.work-card:hover .work-cta svg{transform:translateX(3px);}
+.work-note{margin-top:28px;font-size:12px;color:var(--text-faint);text-align:center;}
+
+/* ============ NOSOTROS · PILLARS ============ */
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;}
+.pillar-grid--inline{grid-template-columns:1fr;gap:12px;margin-top:26px;}
+.pillar-grid--inline .pillar-card{
+  display:flex;align-items:flex-start;gap:16px;padding:16px 18px;
+}
+.pillar-grid--inline .pillar-icon{margin-bottom:0;flex-shrink:0;}
+.pillar-grid--inline .pillar-text h4{margin-bottom:4px;}
+.pillar-grid--inline .pillar-text p{margin:0;}
+.pillar-card{
+  border:1px solid var(--line);border-radius:var(--radius-md);padding:22px 20px;background:var(--surface);
+  transition:border-color .4s,background .4s,transform .4s var(--ease);
+}
+.pillar-card:hover{border-color:var(--blue-deep);background:var(--surface-strong);transform:translateY(-4px);}
+.pillar-icon{width:36px;height:36px;border-radius:50%;border:1px solid var(--blue-deep);display:flex;align-items:center;justify-content:center;color:var(--blue-light);margin-bottom:14px;}
+.pillar-icon svg{width:17px;height:17px;}
+.pillar-card h4{font-size:14.5px;font-weight:600;font-family:'Inter',sans-serif;margin-bottom:6px;}
+.pillar-card p{font-size:12.5px;color:var(--text-dim);line-height:1.55;}
+.nosotros-more{margin-top:28px;}
+.btn-cta-glow{
+  position:relative;overflow:hidden;isolation:isolate;
+  border-color:var(--blue-deep);
+  animation:ctaGlowRing 2.6s ease-in-out infinite;
+}
+.btn-cta-glow::before{
+  content:'';position:absolute;inset:0;z-index:-1;border-radius:100px;
+  background:linear-gradient(100deg,transparent 30%, rgba(34,195,232,.5) 48%, transparent 64%);
+  background-size:220% 220%;animation:heroSheen 3.2s ease-in-out infinite;mix-blend-mode:screen;
+}
+.btn-cta-glow svg{width:15px;height:15px;animation:ctaArrowNudge 1.6s ease-in-out infinite;}
+@keyframes ctaGlowRing{
+  0%,100%{box-shadow:0 0 0 0 rgba(34,195,232,.35),0 8px 26px -6px var(--blue-glow);}
+  50%{box-shadow:0 0 0 8px rgba(34,195,232,0),0 8px 34px -4px var(--blue-glow);}
+}
+@keyframes ctaArrowNudge{0%,100%{transform:translateX(0);}50%{transform:translateX(4px);}}
+
+/* ============ PREMIUM MODALS (Case Study + Studio) ============ */
+.pm-overlay{
+  position:fixed;inset:0;z-index:300;background:rgba(4,5,9,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;padding:32px;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+}
+.pm-overlay.open{opacity:1;pointer-events:auto;}
+.pm-modal{
+  width:100%;max-width:760px;max-height:86vh;overflow-y:auto;position:relative;
+  background:linear-gradient(165deg,rgba(16,18,24,.97),rgba(8,9,13,.98));
+  border:1px solid var(--line);border-radius:var(--radius-lg);backdrop-filter:blur(24px);
+  box-shadow:0 50px 120px -24px rgba(0,0,0,.75);
+  transform:scale(.94) translateY(24px);transition:transform .45s var(--ease);
+}
+.pm-overlay.open .pm-modal{transform:scale(1) translateY(0);}
+.pm-close{
+  position:sticky;top:14px;margin:14px 14px -40px auto;width:36px;height:36px;border-radius:50%;
+  background:rgba(6,7,10,.6);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  color:var(--text-dim);float:right;z-index:2;backdrop-filter:blur(8px);
+}
+.pm-close:hover{color:var(--text);border-color:var(--blue);}
+.pm-close svg{width:16px;height:16px;}
+.pm-overlay--full{padding:0;}
+.pm-modal--full{max-width:100%;width:100%;height:100vh;max-height:100vh;border-radius:0;}
+.pm-back{
+  position:sticky;top:18px;margin:18px 18px -46px auto;float:right;z-index:2;
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(6,7,10,.65);border:1px solid var(--line);border-radius:100px;
+  padding:10px 20px 10px 14px;color:var(--text-dim);font-size:12.5px;
+  font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  transition:border-color .3s,color .3s,background .3s;
+}
+.pm-back:hover{color:var(--text);border-color:var(--blue);background:rgba(6,7,10,.85);}
+.pm-back svg{width:15px;height:15px;}
+.pm-body{padding:16px 36px 40px;}
+.pm-gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;border-radius:var(--radius-md);overflow:hidden;margin-bottom:26px;}
+.pm-gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;}
+.pm-gallery video{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;background:#000;}
+.pm-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-light);margin-bottom:10px;}
+.pm-title{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-.01em;margin-bottom:22px;}
+.pm-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:8px;}
+.pm-field{border-top:1px solid var(--line-soft);padding-top:14px;}
+.pm-field.full{grid-column:1 / -1;}
+.pm-field .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);margin-bottom:8px;display:block;}
+.pm-field p{font-size:13.5px;color:var(--text-dim);line-height:1.65;}
+.pm-field .val{font-size:14px;color:var(--text);font-weight:600;font-family:'Space Grotesk',sans-serif;}
+.pm-cta-row{margin-top:30px;padding-top:24px;border-top:1px solid var(--line-soft);display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+.pm-cta-row p{font-size:12.5px;color:var(--text-faint);max-width:280px;}
+.pm-quote{
+  border-left:2px solid var(--blue-deep);padding-left:18px;margin:26px 0;
+}
+.pm-quote p{font-family:'Space Grotesk',sans-serif;font-size:18px;color:var(--text);line-height:1.5;}
+.pm-quote span{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--blue-light);margin-top:8px;display:block;letter-spacing:.05em;}
+body.pm-lock{overflow:hidden;}
+
+/* ============ STUDIO MODAL · SUPERIMPOSED PHOTO BACKGROUND ============ */
+.pm-modal--photo-bg{position:relative;isolation:isolate;background:rgba(8,9,13,.98);}
+.pm-modal--photo-bg::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background-image:var(--modal-photo-bg);background-size:cover;background-position:center;
+  filter:saturate(.85) contrast(1.05) brightness(.62);
+}
+.pm-modal--photo-bg::after{
+  content:'';position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(8,9,13,.72) 0%, rgba(8,9,13,.82) 40%, rgba(8,9,13,.92) 100%);
+}
+
+/* ============ STUDIO MODAL · EDITORIAL LAYOUT ============ */
+.pm-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;margin:36px 0 8px;}
+.pm-intro-text p{font-size:15.5px;color:var(--text-dim);line-height:1.8;margin-bottom:18px;}
+.pm-stat-strip{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-soft);}
+.pm-stat{display:flex;flex-direction:column;gap:4px;}
+.pm-stat b{font-family:'Space Grotesk',sans-serif;font-size:22px;color:var(--blue-light);}
+.pm-stat span{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);}
+.pm-video-card{
+  position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);
+  background:#000;box-shadow:0 30px 70px -20px rgba(0,0,0,.65);aspect-ratio:9/16;max-height:520px;
+}
+.pm-video-card video{width:100%;height:100%;object-fit:cover;display:block;}
+.pm-video-tag{
+  position:absolute;top:14px;left:14px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--blue-light);background:rgba(6,7,10,.55);
+  border:1px solid var(--blue-deep);border-radius:100px;padding:6px 12px;backdrop-filter:blur(6px);
+}
+.pm-video-caption{margin-top:14px;font-size:12.5px;color:var(--text-faint);text-align:center;}
+.pm-video-play{
+  position:absolute;inset:0;z-index:3;width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(6,7,10,.28);border:none;cursor:pointer;
+  transition:background .3s;
+}
+.pm-video-play:hover{background:rgba(6,7,10,.4);}
+.pm-video-play-circle{
+  width:74px;height:74px;border-radius:50%;
+  background:rgba(6,7,10,.55);border:1.5px solid rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:transform .3s var(--ease),border-color .3s,background .3s;
+}
+.pm-video-play:hover .pm-video-play-circle{transform:scale(1.08);border-color:var(--blue-light);background:rgba(6,7,10,.7);}
+.pm-video-play-circle svg{width:26px;height:26px;color:var(--text);margin-left:4px;}
+.pm-video-play.is-hidden{opacity:0;pointer-events:none;}
+
+.pm-statement{
+  margin:48px 0;padding:36px;border-radius:var(--radius-lg);text-align:center;
+  background:linear-gradient(165deg,rgba(34,195,232,.06),rgba(255,255,255,.02));
+  border:1px solid var(--blue-deep);
+}
+.pm-statement .lbl{justify-content:center;display:flex;}
+.pm-statement p{font-family:'Space Grotesk',sans-serif;font-size:21px;line-height:1.5;color:var(--text);max-width:620px;margin:0 auto;}
+
+.pm-section-label{display:flex;align-items:center;gap:10px;margin:8px 0 22px;}
+.pm-section-label::before{content:'';width:22px;height:1px;background:var(--blue);}
+.pm-section-label span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue-light);}
+
+.pm-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:8px;}
+.pm-info-card{
+  border:1px solid var(--line);border-radius:var(--radius-md);padding:24px 22px;background:var(--surface);
+  transition:border-color .4s,background .4s,transform .4s var(--ease);
+}
+.pm-info-card:hover{border-color:var(--blue-deep);background:var(--surface-strong);transform:translateY(-3px);}
+.pm-info-icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--blue-deep);display:flex;align-items:center;justify-content:center;color:var(--blue-light);margin-bottom:16px;}
+.pm-info-icon svg{width:18px;height:18px;}
+.pm-info-card h4{font-size:15px;font-weight:600;font-family:'Inter',sans-serif;margin-bottom:8px;}
+.pm-info-card p{font-size:13px;color:var(--text-dim);line-height:1.6;}
+
+.pm-quote--big{
+  border:none;padding:0;margin:52px 0;text-align:center;position:relative;
+}
+.pm-quote--big .mark{font-family:'Space Grotesk',sans-serif;font-size:64px;line-height:1;color:var(--blue-deep);display:block;margin-bottom:-10px;}
+.pm-quote--big p{font-family:'Space Grotesk',sans-serif;font-size:26px;color:var(--text);line-height:1.4;max-width:560px;margin:0 auto;}
+.pm-quote--big span{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-light);margin-top:14px;display:block;letter-spacing:.08em;text-align:center;}
+
+/* ============ MODAL LOWER SECTION · SECOND SUPERIMPOSED PHOTO ============ */
+.pm-lower-photo-bg{position:relative;isolation:isolate;margin:0 -36px;padding:40px 36px 8px;overflow:hidden;}
+.pm-lower-photo-bg::before{
+  content:'';position:absolute;inset:0;z-index:-2;
+  background-image:var(--modal-photo-bg-2);background-size:cover;background-position:center;
+  filter:saturate(.82) contrast(1.06) brightness(.5);
+}
+.pm-lower-photo-bg::after{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(8,9,13,.5) 0%, rgba(8,9,13,.7) 30%, rgba(8,9,13,.88) 100%);
+}
+
+/* ============ AI DIAGNÓSTICO ============ */
+.diag-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.diag-upload-zone{
+  border:1.5px dashed var(--blue-deep);border-radius:var(--radius-lg);padding:48px 32px;
+  text-align:center;cursor:pointer;transition:border-color .35s,background .35s;
+  background:var(--surface);position:relative;overflow:hidden;
+}
+.diag-upload-zone:hover,.diag-upload-zone.drag{border-color:var(--blue);background:var(--surface-strong);}
+.diag-upload-icon{width:56px;height:56px;border-radius:50%;background:rgba(34,195,232,.12);border:1px solid var(--blue-deep);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--blue-light);}
+.diag-upload-icon svg{width:26px;height:26px;}
+.diag-upload-zone h3{font-size:19px;margin-bottom:8px;}
+.diag-upload-zone p{font-size:13.5px;color:var(--text-dim);max-width:280px;margin:0 auto;}
+.diag-upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.diag-preview-wrap{position:relative;margin-top:20px;display:none;}
+.diag-preview-img{width:100%;border-radius:var(--radius-md);border:1px solid var(--line);aspect-ratio:4/3;object-fit:cover;}
+.diag-preview-overlay{position:absolute;inset:0;border-radius:var(--radius-md);background:linear-gradient(to top,rgba(6,7,10,.85) 0%,transparent 55%);display:flex;align-items:flex-end;padding:18px;}
+.diag-preview-change{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--blue-light);cursor:pointer;}
+.diag-scan-bar{
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--blue-light),transparent);
+  animation:scanAnim 1.8s ease-in-out infinite;display:none;
+}
+@keyframes scanAnim{0%{top:0%;}100%{top:100%;}}
+.diag-btn-wrap{margin-top:24px;}
+.diag-btn-wrap .btn{width:100%;gap:10px;}
+.diag-btn-wrap .btn svg{width:20px;height:20px;}
+.diag-btn-wrap .btn.loading{opacity:.7;pointer-events:none;}
+.diag-btn-wrap .btn.error{background:linear-gradient(135deg,#e69485,var(--danger));box-shadow:0 8px 30px -6px rgba(224,114,92,.4);}
+.diag-result{display:none;flex-direction:column;gap:0;}
+.diag-result.visible{display:flex;}
+.diag-result-top{border:1px solid var(--line);border-radius:var(--radius-lg) var(--radius-lg) 0 0;padding:32px;background:var(--bg-rise);}
+.diag-score-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
+.diag-score-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--text-faint);}
+.diag-score-val{font-family:'Space Grotesk',sans-serif;font-size:40px;color:var(--blue-light);}
+.diag-score-sub{font-size:12.5px;color:var(--text-faint);}
+.diag-bars{display:flex;flex-direction:column;gap:12px;}
+.diag-bar-row{display:grid;grid-template-columns:150px 1fr auto;align-items:center;gap:12px;font-size:12.5px;}
+.diag-bar-track{height:6px;border-radius:100px;background:rgba(255,255,255,.08);overflow:hidden;}
+.diag-bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--blue-deep),var(--blue));transition:width 1.2s cubic-bezier(.16,.84,.44,1);}
+.diag-bar-pct{color:var(--blue-light);font-size:12px;text-align:right;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+.diag-result-mid{border:1px solid var(--line);border-top:none;padding:28px 32px;background:var(--bg-alt);display:flex;flex-direction:column;gap:14px;}
+.diag-pack-rec{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.diag-pack-badge{background:linear-gradient(135deg,var(--blue-light),var(--blue));color:#04070f;font-weight:700;font-size:11px;padding:6px 16px;border-radius:100px;white-space:nowrap;}
+.diag-pack-name{font-family:'Space Grotesk',sans-serif;font-size:20px;}
+.diag-pack-reason{font-size:13.5px;color:var(--text-dim);line-height:1.6;}
+.diag-improve{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ok);}
+.diag-findings{display:flex;flex-direction:column;gap:8px;}
+.diag-finding{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-dim);}
+.diag-finding::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue-light);flex-shrink:0;margin-top:5px;}
+.diag-result-bot{border:1px solid var(--line);border-top:none;border-radius:0 0 var(--radius-lg) var(--radius-lg);padding:24px 32px;background:var(--bg-rise);display:flex;gap:14px;}
+.diag-result-bot .btn{flex:1;}
+.diag-placeholder{display:flex;flex-direction:column;gap:18px;padding:40px 0;}
+.diag-placeholder-item{display:flex;gap:16px;align-items:flex-start;}
+.diag-placeholder-icon{width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue-light);}
+.diag-placeholder-icon svg{width:20px;height:20px;}
+.diag-placeholder-item h4{font-size:14.5px;font-weight:600;margin-bottom:4px;}
+.diag-placeholder-item p{font-size:13px;color:var(--text-dim);}
+.diag-reset{background:none;border:none;color:var(--text-faint);font-size:12px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;cursor:pointer;margin-top:8px;transition:color .3s;}
+.diag-reset:hover{color:var(--blue-light);}
+.diag-system-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--blue-light);text-transform:uppercase;margin-bottom:16px;}
+.diag-report-meta{display:flex;align-items:center;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--text-faint);text-transform:uppercase;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line-soft);gap:12px;}
+.diag-report-meta .live{display:flex;align-items:center;gap:7px;}
+.diag-report-meta .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);flex-shrink:0;animation:pulseDot 2s ease-in-out infinite;}
+@keyframes pulseDot{0%,100%{opacity:1;}50%{opacity:.35;}}
+.diag-bar-status{font-size:10.5px;margin-left:8px;font-family:'JetBrains Mono',monospace;}
+.diag-bar-status.ok{color:var(--ok);}
+.diag-bar-status.warn{color:var(--warn);}
+.diag-bar-status.danger{color:var(--danger);}
+.diag-result-top{position:relative;}
+.diag-result-top::before,.diag-result-top::after,
+.diag-result-bot::before,.diag-result-bot::after{
+  content:'';position:absolute;width:13px;height:13px;pointer-events:none;
+}
+.diag-result-top::before{top:-1px;left:-1px;border-top:1.5px solid var(--blue-deep);border-left:1.5px solid var(--blue-deep);}
+.diag-result-top::after{top:-1px;right:-1px;border-top:1.5px solid var(--blue-deep);border-right:1.5px solid var(--blue-deep);}
+.diag-result-bot{position:relative;}
+.diag-result-bot::before{bottom:-1px;left:-1px;border-bottom:1.5px solid var(--blue-deep);border-left:1.5px solid var(--blue-deep);}
+.diag-result-bot::after{bottom:-1px;right:-1px;border-bottom:1.5px solid var(--blue-deep);border-right:1.5px solid var(--blue-deep);}
+
+/* ============ PROCESO / PROTOCOLO ============ */
+.process-track{display:flex;flex-direction:column;position:relative;}
+.process-step{display:flex;gap:20px;padding:24px 0;border-top:1px solid var(--line-soft);position:relative;}
+.process-step:first-child{border-top:1px solid var(--line);}
+.process-num{
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--blue-light);
+  flex-shrink:0;width:34px;padding-top:3px;letter-spacing:.02em;
+}
+.process-body{flex:1;}
+.process-body h4{font-size:16.5px;margin-bottom:6px;}
+.process-body p{font-size:13.5px;color:var(--text-dim);line-height:1.65;max-width:560px;}
+.process-tag{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--text-faint);
+  text-transform:uppercase;margin-top:12px;display:inline-block;
+}
+.process-cta{margin-top:44px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.process-cta p{font-size:13px;color:var(--text-faint);}
+@media (min-width:769px){
+  .process-track{padding-left:52px;}
+  .process-track::before{
+    content:'';position:absolute;left:15px;top:10px;bottom:10px;width:1px;
+    background:linear-gradient(180deg,transparent,var(--blue-deep) 8%,var(--blue-deep) 92%,transparent);
+  }
+  .process-step{border-top:none;padding:26px 0;}
+  .process-step:first-child{border-top:none;}
+  .process-num{
+    position:absolute;left:-52px;top:26px;width:32px;height:32px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;padding-top:0;
+    background:var(--bg-alt);border:1px solid var(--blue-deep);z-index:1;
+  }
+}
+
+/* ============ CERTIFICATIONS ============ */
+.cert-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);overflow:hidden;}
+.cert-cell{background:rgba(10,11,14,.6);backdrop-filter:blur(14px);padding:36px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;transition:background .4s,transform .45s var(--ease),box-shadow .45s;position:relative;z-index:1;opacity:0;transform:translateY(28px);}
+.cert-cell:hover{background:rgba(14,16,20,.8);transform:translateY(-6px) scale(1.03);box-shadow:0 20px 44px -20px rgba(34,195,232,.4);z-index:2;}
+.cert-cell .cert-icon{width:44px;height:44px;border-radius:50%;border:1px solid var(--blue-deep);display:flex;align-items:center;justify-content:center;color:var(--blue-light);transition:transform .45s var(--ease),box-shadow .45s,border-color .45s;}
+.cert-cell:hover .cert-icon{transform:rotate(8deg) scale(1.14);border-color:var(--blue-light);box-shadow:0 0 0 7px rgba(34,195,232,.14);}
+.cert-cell h4{font-size:13.5px;font-weight:600;font-family:'Space Grotesk',sans-serif;}
+.cert-cell p{font-size:11.5px;color:var(--text-faint);}
+
+/* ============ PRICING ============ */
+.price-selector{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.price-tab{border:1px solid var(--line);border-radius:100px;padding:11px 22px;font-size:13px;color:var(--text-dim);transition:.3s;}
+.price-tab.active{border-color:var(--blue);color:var(--text);background:rgba(34,195,232,.08);}
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.price-card{border:1px solid var(--line);border-radius:var(--radius-md);padding:28px 24px;background:var(--surface);display:flex;flex-direction:column;}
+.price-card .exp-num{margin-bottom:14px;}
+.price-card h4{font-size:16.5px;margin-bottom:10px;}
+.price-card .price-val{font-family:'Space Grotesk',sans-serif;font-size:28px;color:var(--blue-light);margin-bottom:6px;}
+.price-card .price-from{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;}
+.price-card p{font-size:12.5px;color:var(--text-dim);}
+.price-card .price-wa-btn{
+  margin-top:18px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 16px;border-radius:var(--radius-sm,8px);border:1px solid var(--blue-deep);
+  color:var(--blue-light);font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;
+  text-transform:uppercase;transition:background .3s,color .3s,border-color .3s;text-decoration:none;
+  margin-top:auto;
+}
+.price-card .price-wa-btn svg{width:15px;height:15px;flex-shrink:0;}
+.price-card .price-wa-btn:hover{background:var(--blue);color:#04141a;border-color:var(--blue);}
+.price-note{margin-top:26px;font-size:12px;color:var(--text-faint);}
+
+/* ============ COVERAGE ============ */
+.coverage-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.home-service-block{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  margin-top:70px;padding-top:70px;border-top:1px solid var(--line-soft);
+}
+.home-service-text .eyebrow{margin-bottom:14px;}
+.home-service-text h3{font-size:clamp(22px,2.6vw,30px);margin-bottom:16px;line-height:1.25;}
+.home-service-text p{font-size:14.5px;color:var(--text-dim);line-height:1.7;max-width:480px;}
+.home-service-perks{display:flex;flex-direction:column;gap:10px;margin-top:22px;}
+.home-service-perks span{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-dim);}
+.home-service-perks svg{width:16px;height:16px;color:var(--blue-light);flex-shrink:0;}
+#homeServiceWaBtn{white-space:normal;text-align:center;}
+.video-card--wide{aspect-ratio:16/9;max-height:400px;}
+.zone-map{border:1px solid var(--line);border-radius:var(--radius-lg);padding:0;background:var(--surface);overflow:hidden;min-height:340px;}
+.zone-map iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:grayscale(0.25) contrast(1.05);}
+.zone-list{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;}
+.zone-chip{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:100px;padding:10px 18px;font-size:13px;color:var(--text-dim);background:var(--surface);}
+.zone-chip svg{width:15px;height:15px;color:var(--blue-light);}
+
+/* ============ FAQ ============ */
+.faq-list{display:flex;flex-direction:column;}
+.faq-item{border-bottom:1px solid var(--line-soft);}
+.faq-item:first-child{border-top:1px solid var(--line-soft);}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 0;text-align:left;font-size:16.5px;font-weight:500;font-family:'Space Grotesk',sans-serif;color:var(--text);}
+.faq-q svg{width:18px;height:18px;color:var(--blue-light);transition:transform .35s var(--ease);flex-shrink:0;}
+.faq-item.open .faq-q svg{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+.faq-a p{padding-bottom:24px;color:var(--text-dim);font-size:14.5px;max-width:640px;}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line-soft);padding:70px 0 32px;background:var(--bg-alt);}
+.footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;}
+.footer-logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;}
+.footer-logo .mark{width:26px;height:26px;}
+.footer-links{display:flex;gap:12px;flex-wrap:wrap;}
+.footer-links a{font-size:13px;color:var(--text-dim);border:1px solid var(--line);border-radius:100px;padding:9px 16px;transition:.3s;display:flex;align-items:center;gap:7px;}
+.footer-links a:hover{border-color:var(--blue);color:var(--text);}
+.footer-links a svg{width:14px;height:14px;}
+.footer-certs{display:flex;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);letter-spacing:.06em;flex-wrap:wrap;}
+.footer-certs span{border:1px solid var(--line-soft);border-radius:100px;padding:6px 12px;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:50px;padding-top:24px;border-top:1px solid var(--line-soft);font-size:12px;color:var(--text-faint);flex-wrap:wrap;gap:12px;}
+
+/* ============ PRECISION ADVISOR (chat widget) ============ */
+.advisor-toggle{
+  position:fixed;bottom:26px;right:26px;z-index:200;width:62px;height:62px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue-light),var(--blue));display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px -6px var(--blue-glow);animation:pulseBlue 3s ease-in-out infinite;
+  padding:0;overflow:hidden;border:none;
+}
+.advisor-toggle svg{width:25px;height:25px;color:#04070f;}
+.advisor-hint{
+  position:fixed;bottom:98px;right:26px;z-index:199;max-width:280px;
+  background:rgba(10,11,15,.97);backdrop-filter:blur(14px);border:1px solid var(--blue-deep);
+  border-radius:16px;padding:18px 34px 18px 18px;box-shadow:0 24px 60px -12px rgba(0,0,0,.6),0 0 0 1px rgba(34,195,232,.05);
+  opacity:0;transform:translateY(10px) scale(.96);pointer-events:none;
+  transition:opacity .4s var(--ease),transform .4s var(--ease);
+}
+.advisor-hint.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+.advisor-hint-title{font-family:'Space Grotesk',sans-serif;font-size:14.5px;font-weight:600;color:var(--text);margin:0 0 6px;line-height:1.35;}
+.advisor-hint-text{font-size:12.5px;color:var(--text-dim);line-height:1.55;margin:0 0 14px;}
+.advisor-hint-cta{
+  display:inline-flex;align-items:center;gap:8px;width:100%;justify-content:center;
+  background:linear-gradient(135deg,var(--blue-light),var(--blue));color:#04070f;
+  font-weight:700;font-size:12.5px;letter-spacing:.01em;padding:11px 16px;border-radius:100px;border:none;
+  box-shadow:0 8px 24px -6px var(--blue-glow);transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.advisor-hint-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -6px var(--blue-glow);}
+.advisor-hint-cta svg{width:14px;height:14px;transition:transform .3s var(--ease);}
+.advisor-hint-cta:hover svg{transform:translateX(3px);}
+.advisor-hint::after{
+  content:'';position:absolute;bottom:-7px;right:30px;width:14px;height:14px;
+  background:rgba(10,11,15,.97);border-right:1px solid var(--blue-deep);border-bottom:1px solid var(--blue-deep);
+  transform:rotate(45deg);
+}
+.advisor-hint-close{
+  position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;
+  background:transparent;border:none;color:var(--text-faint);font-size:16px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.advisor-hint-close:hover{color:var(--text);}
+@keyframes pulseBlue{0%,100%{box-shadow:0 10px 30px -6px var(--blue-glow);}50%{box-shadow:0 10px 42px -2px var(--blue-glow);}}
+.advisor-panel{
+  position:fixed;bottom:100px;right:26px;z-index:200;width:380px;max-width:calc(100vw - 40px);height:560px;max-height:72vh;
+  background:rgba(10,11,15,0.94);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:var(--radius-lg);
+  display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);
+  transform:scale(.92) translateY(16px);opacity:0;pointer-events:none;transition:transform .35s var(--ease),opacity .3s;
+}
+.advisor-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:auto;}
+.advisor-head{display:flex;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line-soft);}
+.advisor-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue-light),var(--blue));display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.advisor-avatar svg{width:17px;height:17px;color:#04070f;}
+.advisor-head h4{font-size:14px;font-weight:600;font-family:'Space Grotesk',sans-serif;}
+.advisor-head span{font-size:11px;color:var(--text-faint);display:flex;align-items:center;gap:5px;}
+.advisor-head span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ok);}
+.advisor-close{margin-left:auto;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:var(--text-faint);border-radius:50%;}
+.advisor-close:hover{background:var(--surface);color:var(--text);}
+.advisor-close svg{width:16px;height:16px;}
+.advisor-body{flex:1;overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:14px;}
+.amsg{max-width:85%;font-size:13.5px;line-height:1.5;padding:11px 15px;border-radius:14px;}
+.amsg.bot{align-self:flex-start;background:var(--surface);border:1px solid var(--line-soft);border-bottom-left-radius:4px;}
+.amsg.user{align-self:flex-end;background:linear-gradient(135deg,var(--blue-deep),#08222a);color:var(--blue-light);border-bottom-right-radius:4px;}
+.amsg.typing{display:flex;gap:4px;align-items:center;padding:14px 16px;}
+.amsg.typing span{width:6px;height:6px;border-radius:50%;background:var(--text-faint);animation:typingDot 1.2s infinite;}
+.amsg.typing span:nth-child(2){animation-delay:.2s;}
+.amsg.typing span:nth-child(3){animation-delay:.4s;}
+@keyframes typingDot{0%,60%,100%{opacity:.3;transform:translateY(0);}30%{opacity:1;transform:translateY(-3px);}}
+.advisor-summary{margin:6px 0 4px;border:1px solid var(--blue-deep);background:rgba(34,195,232,.08);border-radius:var(--radius-sm);padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
+.advisor-summary p{font-size:12px;color:var(--text-dim);}
+.advisor-foot{padding:14px 16px;border-top:1px solid var(--line-soft);display:flex;gap:10px;}
+.advisor-foot input{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:100px;padding:11px 16px;color:var(--text);font-size:16px;font-family:'Inter',sans-serif;}
+.advisor-foot input:focus{border-color:var(--blue);}
+.advisor-foot input:disabled{opacity:.5;}
+.advisor-send{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue-light),var(--blue));display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .3s;}
+.advisor-send:disabled{opacity:.45;cursor:default;}
+.advisor-send svg{width:16px;height:16px;color:#04070f;}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1024px){
+  .extra-grid{grid-template-columns:repeat(2,1fr);}
+  .exp-row{grid-template-columns:1fr;gap:40px;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .diag-wrap{grid-template-columns:1fr;}
+  .cert-strip{grid-template-columns:repeat(3,1fr);}
+  .price-grid{grid-template-columns:1fr 1fr;}
+  .coverage-wrap{grid-template-columns:1fr;}
+  .home-service-block{grid-template-columns:1fr;gap:36px;margin-top:50px;padding-top:50px;}
+  .home-service-block .video-card--wide{order:-1;max-height:280px;}
+  #homeServiceWaBtn{width:100%;}
+  .need-grid{grid-template-columns:repeat(3,1fr);}
+  .maint-grid{grid-template-columns:1fr;}
+  .benefit-grid{grid-template-columns:1fr;}
+  .hero-trust{border-radius:var(--radius-lg);}
+  .work-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:768px){
+  .nav-desktop-only{display:none;}
+  .container{padding:0 22px;}
+  .nav .container{padding:0 22px;}
+  .section{padding:64px 0;}
+  .extra-grid,.gallery-grid{grid-template-columns:1fr;}
+  .cert-strip{grid-template-columns:1fr 1fr;}
+  .cert-strip .cert-cell:last-child:nth-child(odd){grid-column:1 / -1;}
+  .price-grid{grid-template-columns:1fr;}
+  .need-grid{grid-template-columns:1fr 1fr;}
+  .need-grid .need-btn:last-child:nth-child(odd){grid-column:1 / -1;}
+  .footer-grid{flex-direction:column;gap:24px;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .advisor-panel{right:12px;left:12px;width:auto;bottom:88px;max-height:76vh;}
+  .advisor-toggle{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));}
+  .advisor-hint{right:14px;bottom:calc(88px + env(safe-area-inset-bottom,0px));max-width:250px;padding:16px 30px 16px 16px;}
+  .work-grid{grid-template-columns:1fr;}
+  .pillar-grid{grid-template-columns:1fr;}
+  .pm-overlay{padding:0;}
+  .pm-modal{max-width:100%;max-height:100vh;height:100%;border-radius:0;}
+  .pm-gallery{grid-template-columns:1fr 1fr;}
+  .pm-title{font-size:21px;}
+  .pm-grid{grid-template-columns:1fr;}
+  .pm-body{padding:14px 20px 100px;}
+  .pm-back{top:calc(14px + env(safe-area-inset-top,0px));margin:14px 14px -46px auto;}
+  .pm-intro{grid-template-columns:1fr;gap:28px;margin-top:24px;}
+  .pm-video-card{max-height:64vh;order:-1;}
+  .pm-statement{padding:26px 20px;margin:32px 0;}
+  .pm-statement p{font-size:17px;}
+  .pm-info-grid{grid-template-columns:1fr;}
+  .pm-quote--big{margin:36px 0;}
+  .pm-quote--big p{font-size:20px;}
+  .pm-stat-strip{gap:20px;}
+  .pm-cta-row{position:sticky;bottom:0;background:rgba(8,9,13,.98);margin:24px -20px 0;padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);}
+  .pm-lower-photo-bg{margin:0 -20px;padding:28px 20px 4px;}
+  .advisor-hint::after{right:20px;}
+  .position-strip{padding:70px 0;}
+  .position-strip .not-list{gap:16px;}
+  .position-strip .yes-list{gap:10px;}
+  .yes-chip{padding:9px 16px;font-size:12px;}
+
+  /* Comparación de protección permanente: de tabla a tarjetas apiladas */
+  .perm-row.head{display:none;}
+  .perm-compare{gap:12px;}
+  .perm-row:not(.head){
+    display:flex;flex-direction:column;align-items:flex-start;gap:6px;
+    padding:16px 18px;font-size:13px;
+  }
+  .perm-row:not(.head) b{font-size:14.5px;}
+  .perm-row:not(.head) span:nth-child(2)::before{content:'Protege: ';color:var(--text-faint);}
+  .perm-row:not(.head) span:nth-child(3)::before{content:'Duración: ';color:var(--text-faint);}
+  .perm-row:not(.head) span:nth-child(4)::before{content:'Garantía: ';color:var(--text-faint);}
+
+  .diag-result-bot{flex-direction:column;}
+  .diag-bar-row{grid-template-columns:100px 1fr auto;gap:8px;font-size:11px;}
+  .diag-bar-status{display:block;font-size:9.5px;margin-left:0;}
+  .diag-report-meta{font-size:9px;flex-wrap:wrap;}
+  .glass[style*="padding:40px"]{padding:26px 20px !important;}
+  .glass[style*="padding:90px"]{padding:48px 22px !important;}
+  .exp-row{padding:44px 22px;gap:32px;border-radius:var(--radius-md);}
+  .exp-row::after{
+    background:
+      linear-gradient(180deg, rgba(6,7,10,.55) 0%, rgba(6,7,10,.82) 45%, rgba(6,7,10,.94) 100%);
+  }
+  .section-bg-photo::after{
+    background:
+      linear-gradient(180deg, rgba(6,7,10,.55) 0%, rgba(6,7,10,.82) 45%, rgba(6,7,10,.94) 100%);
+  }
+  .exp-visual{padding:24px;min-height:auto;}
+  .corr-tabs{flex-wrap:wrap;}
+  .corr-bar-row{grid-template-columns:96px 1fr 36px;gap:8px;}
+  .corr-bar-label{font-size:11px;}
+  .diag-upload-zone{padding:32px 20px;}
+  .nav-social{gap:14px;}
+  .section-head{margin-bottom:40px;}
+  .h2{font-size:clamp(28px,7.5vw,36px);}
+  .lead{font-size:15.5px;}
+}
+@media (max-width:480px){
+  .container{padding:0 18px;}
+  .nav .container{padding:0 18px;}
+  .nav-right{gap:14px;}
+  .nav-social{gap:10px;}
+  .nav-social a{padding:8px;}
+  .nav-social svg{width:16px;height:16px;}
+  .section{padding:52px 0;}
+  .h2{font-size:clamp(26px,7vw,34px);}
+  .need-grid{grid-template-columns:1fr 1fr;}
+  .position-strip .not-list{flex-direction:column;align-items:center;gap:8px;}
+  .nav-logo{font-size:14px;gap:8px;}
+  .nav-logo .mark{width:40px;height:40px;}
+  .nav-logo small{display:none;}
+  .zone-map{min-height:220px;}
+  .zone-map iframe{min-height:220px;}
+  .price-tab{padding:9px 16px;font-size:12px;}
+  .corr-tab{padding:8px 12px;font-size:10.5px;}
+  .exp-num,.eyebrow{letter-spacing:.12em;}
+  .advisor-panel{height:70vh;}
+  .amsg{max-width:90%;}
+  #nosotros .glass > div[style*="min-width:280px"],
+  #nosotros .glass > div[style*="min-width:260px"]{min-width:100% !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#hero" class="nav-logo">
+      <img class="mark" src="https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210259/IMG_8454_m2qoq2_jsg1cz.png" alt="SF Precision" style="object-fit:contain;border-radius:10px;">
+    </a>
+    <div class="nav-right">
+      <div class="nav-social">
+        <a href="https://www.youtube.com/@sfprecision" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22.5 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C18.7 5 12 5 12 5s-6.7 0-8.3.5c-.9.2-1.6.9-1.8 1.8C1.5 8.8 1.5 12 1.5 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C5.3 19 12 19 12 19s6.7 0 8.3-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7z"/><path d="M10 9.5l5 2.5-5 2.5v-5z" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.facebook.com/p/SF-PRECISiO2N-Detailing-Formula-61550567423004/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8.5h2V5.5h-2c-2 0-3.5 1.6-3.5 3.6V11H9.5v3H11.5V19h3v-5H17l.5-3h-3V9.2c0-.4.3-.7.5-.7z"/></svg></a>
+        <a href="https://instagram.com/sf.precision" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      </div>
+      <div class="nav-burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" id="navOpenNosotros" class="nav-desktop-only">Nosotros</a>
+  <a href="#proceso">Nuestro Proceso</a>
+  <a href="#experiencias">Servicios</a>
+  <a href="#trabajos">Trabajos Realizados</a>
+  <a href="#diagnostico">Diagnóstico Visual</a>
+  <a href="#precios">Precios</a>
+  <a href="#faq">Preguntas</a>
+  <a href="#diagnostico" class="btn btn-blue" style="margin-top:20px;">Solicitar Diagnóstico</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-video-wrap">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="https://res.cloudinary.com/dgp7uhps3/video/upload/v1783210929/insta_video_47885_fzsdhk.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-bg">
+    <div class="grad-1"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-sheen"></div>
+    <div class="hero-noise" aria-hidden="true"></div>
+    <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+  </div>
+  <div class="container hero-content">
+    <p class="eyebrow">SF PRECISION · SAN JUAN, PUERTO RICO · SOLO CON CITA PREVIA</p>
+    <h1 class="hero-title"><span class="htw htw-1">PRECISION</span> <span class="htw htw-2">IS</span><br class="title-br"><span class="htw htw-3 accent">PERMANENT.</span></h1>
+    <p class="hero-sub hero-sub-mobile">Corrección de pintura y protección premium para vehículos que merecen algo más que un lavado.</p>
+    <p class="hero-sub hero-sub-full">No restauramos autos. Restauramos el orgullo de conducirlos. Corrección de pintura, protección cerámica y graphene, y sistemas de protección permanente — ejecutados con el estándar de un taller de nivel concurso.</p>
+    <div class="hero-ctas">
+      <a href="#" id="heroWaBtn" class="btn btn-blue" target="_blank" rel="noopener">Agendar Turno</a>
+      <a href="#experiencias" class="btn btn-outline">Ver Servicios</a>
+    </div>
+  </div>
+  <div class="container hero-trust">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span class="trust-label"><b>ADS</b> Certified</span></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4l-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg><span class="trust-label"><b>NanoPRO</b> Certified</span></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span class="trust-label">San Juan · <b>Zona Metro</b></span></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="trust-label">Trabajo <b>por cita previa</b></span></div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="scroll-track"><span class="scroll-dot"></span></span>
+    <span class="scroll-label">SCROLL</span>
+  </div>
+</section>
+
+<!-- POSITIONING STRIP -->
+<section class="position-strip section-bg-photo" style="--photo-bg:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210124/IMG_8465_vbywq8.jpg')">
+  <div class="container">
+    <div class="not-list reveal">
+      <span>Lavados</span><span>Pulidos</span><span>Car wash</span>
+    </div>
+    <h2 class="reveal">Vendemos <em>preservación del vehículo</em>, corrección profesional de pintura, protección de superficies y acabados de <em>nivel concurso</em>.</h2>
+    <div class="yes-list reveal">
+      <span class="yes-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Preservación</span>
+      <span class="yes-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Corrección de pintura</span>
+      <span class="yes-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Protección de superficies</span>
+      <span class="yes-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Restauración estética</span>
+      <span class="yes-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Acabado concurso</span>
+    </div>
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section class="section section-bg-photo" id="nosotros" style="--photo-bg:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783281632/541620472_17944399161019306_3062701773015131624_n_iup1nz.jpg')">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">QUIÉNES SOMOS</p>
+      <h2 class="h2">Un taller certificado, no un lavadero más.</h2>
+      <p class="lead">SF Precision Detailing Formula opera en San Juan bajo un estándar de trabajo por cita previa: cada vehículo recibe diagnóstico, proceso y seguimiento — no una línea de lavado.</p>
+    </div>
+    <div class="glass reveal" style="border-radius:var(--radius-lg);padding:40px;display:flex;gap:40px;align-items:center;flex-wrap:wrap;">
+      <div style="flex:1;min-width:280px;">
+        <p style="font-size:14.5px;color:var(--text-dim);line-height:1.7;margin-bottom:20px;">
+          Somos un equipo certificado en ADS y NanoPRO que se especializa en corrección de pintura, protección cerámica/grafeno y restauración a nivel concurso. No vendemos lavados — vendemos preservación real del vehículo, con procesos medibles y resultados que se sostienen en el tiempo.
+        </p>
+        <blockquote style="border-left:2px solid var(--blue-deep);padding-left:18px;margin:0 0 24px;">
+          <p style="font-family:'Space Grotesk',sans-serif;font-size:19px;color:var(--text);line-height:1.5;">"Nos dedicamos a brindar resultados sobresalientes."</p>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-light);margin-top:10px;letter-spacing:.05em;">— F. MORALES · FUNDADOR</p>
+        </blockquote>
+        <div class="pillar-grid pillar-grid--inline reveal">
+          <div class="pillar-card">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.6 6.9L22 9.3l-5.5 4.8L18 22l-6-4-6 4 1.5-7.9L2 9.3l7.4-.4z"/></svg></div>
+            <div class="pillar-text"><h4>Certified Process</h4>
+            <p>Certificados ADS &amp; NanoPRO. Cada servicio sigue el mismo protocolo medible, no un criterio a ojo.</p></div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div>
+            <div class="pillar-text"><h4>By Appointment Only</h4>
+            <p>Un vehículo a la vez. Sin turnos apurados ni línea de producción — solo trabajo agendado y enfocado.</p></div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+            <div class="pillar-text"><h4>Detail-Oriented Culture</h4>
+            <p>No vendemos lavados: preservamos vehículos. Cada detalle se documenta y se sostiene en el tiempo.</p></div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:260px;display:flex;flex-direction:column;gap:16px;">
+        <div style="border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--line);">
+          <img src="https://res.cloudinary.com/dgp7uhps3/image/upload/v1783281632/541620472_17944399161019306_3062701773015131624_n_iup1nz.jpg" alt="Equipo SF Precision" style="width:100%;height:auto;display:block;filter:saturate(.95) contrast(1.03);">
+        </div>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:var(--text-faint);text-transform:uppercase;">El equipo SF Precision · San Juan, PR</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Certificados ADS & NanoPRO</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Trabajo exclusivamente por cita previa</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Cobertura en Zona Metro de San Juan</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Procesos documentados, no genéricos</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Enfoque en preservación, no solo estética</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nosotros-more reveal" style="text-align:center;">
+      <button class="btn btn-outline btn-cta-glow" id="openStudioModal">Conocer más sobre SF Precision <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section class="section section-alt" id="experiencias">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">CUATRO EXPERIENCIAS, NO DOS PAQUETES</p>
+      <h2 class="h2">Cada vehículo entra en la experiencia que realmente necesita.</h2>
+      <p class="lead">No vendemos niveles de lavado. Diagnosticamos el estado real de tu vehículo y lo llevamos por el proceso correcto — sin pasos de más, sin pasos de menos.</p>
+    </div>
+
+    <!-- EXPERIENCE 01 -->
+    <div class="exp-row reveal" style="--exp-bg:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210120/IMG_8464_iqwgyk.jpg')">
+      <div>
+        <span class="exp-num">EXPERIENCIA 01 / LAVADO DETALLADO</span>
+        <h3>La base de cada experiencia</h3>
+        <p class="exp-text">Todo proceso en SF Precision — desde un cut & finish hasta una restauración de pintura completa — parte del mismo lavado detallado superior. A partir de ahí, sumás exactamente los upgrades que tu vehículo necesita.</p>
+        <div class="exp-tags"><span class="exp-tag">LAVADO DETALLADO SUPERIOR</span><span class="exp-tag">INTERIOR</span><span class="exp-tag">EXTERIOR</span></div>
+      </div>
+      <div class="exp-visual glass">
+        <div class="maint-grid">
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Lavado touchless de contacto seguro</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Descontaminación química ligera</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Aspirado e interior detallado</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Vidrios sin residuos ni rayas</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Llantas y neumáticos acabados</div>
+          <div class="maint-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Refuerzo de protección existente</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE 02 -->
+    <div class="exp-row reveal" style="--exp-bg:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210118/IMG_8467_zwtu6a.jpg')">
+      <div>
+        <span class="exp-num">EXPERIENCIA 02 / SERVICIOS DE PULIDO</span>
+        <h3>Corrección de pintura</h3>
+        <p class="exp-text">Medimos el defecto antes de tocar la pintura: hologramas, manchas de lluvia ácida, depósito de aves y rayaduras superficiales. El proceso — One Cut &amp; Finish, 2 Step o Restauración completa — depende de lo que encontramos, no de lo que vendemos.</p>
+        <div class="exp-tags"><span class="exp-tag">ONE CUT &amp; FINISH</span><span class="exp-tag">2 STEP CORRECTION</span><span class="exp-tag">RESTAURACIÓN DE PINTURA</span></div>
+      </div>
+      <div class="exp-visual glass">
+        <div class="corr-tabs" id="corrTabs"></div>
+        <div class="corr-bars" id="corrBars"></div>
+        <p class="corr-note" id="corrNote"></p>
+        <p class="corr-price" id="corrPrice"></p>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE 03 -->
+    <div class="exp-row reveal" style="--exp-bg:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210119/IMG_8462_racicw.jpg')">
+      <div>
+        <span class="exp-num">EXPERIENCIA 03 / PROTECCIÓN ECONÓMICA</span>
+        <h3>Protección de Grafeno Elemental</h3>
+        <p class="exp-text">No es una cera que se va con el próximo lavado. Es un recubrimiento en base grafeno que cambia cómo tu pintura responde al sol, al agua y al tiempo — con descontaminación y un paso de pulido incluidos. Duración: 1 año.<sup style="font-size:11px;">*</sup></p>
+        <div class="exp-tags"><span class="exp-tag">GRAFENO ELEMENTAL</span><span class="exp-tag">1 AÑO DE DURACIÓN</span></div>
+        <p style="font-size:11.5px;color:var(--text-faint);margin-top:14px;">*Ciertas restricciones aplican.</p>
+      </div>
+      <div class="exp-visual glass">
+        <div class="benefit-grid">
+          <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div><h4>Protección UV</h4><p>La pintura deja de oxidarse y perder color bajo el sol del Caribe.</p></div>
+          <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C8 8 5 12 5 15.5A7 7 0 0019 15.5C19 12 16 8 12 2z"/></svg></div><h4>Repelencia al agua</h4><p>El agua y la suciedad resbalan antes de fijarse en la superficie.</p></div>
+          <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h4>Mayor profundidad</h4><p>El color gana un brillo y una profundidad óptica que se nota de inmediato.</p></div>
+          <div class="benefit-card"><div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Menor mantenimiento</h4><p>Menos tiempo lavando, más tiempo conduciendo. La suciedad no se adhiere igual.</p></div>
+        </div>
+        <div style="margin-top:20px;border-top:1px solid var(--line-soft);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-light);">DESDE $450 · COMPACTO</span>
+          <a href="#precios" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);text-decoration:underline;">Ver por tamaño de vehículo →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE 04 -->
+    <div class="exp-row reveal" style="--exp-bg:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210131/IMG_8466_sn6uue.jpg')">
+      <div>
+        <span class="exp-num">EXPERIENCIA 04 / PERMANENT PROTECTION</span>
+        <h3>Protección permanente</h3>
+        <p class="exp-text">Cuando la protección química no alcanza, el siguiente nivel es físico. Liquid PPF, Borograph y NanoPRO ofrecen distintos niveles de blindaje real contra impactos, piedras y abrasión.</p>
+        <div class="exp-tags"><span class="exp-tag">LIQUID PPF</span><span class="exp-tag">BOROGRAPH</span><span class="exp-tag">NANOPRO</span></div>
+      </div>
+      <div class="exp-visual glass">
+        <div class="perm-compare">
+          <div class="perm-row head"><span>Sistema</span><span>Protege</span><span>Duración</span><span>Garantía</span></div>
+          <div class="perm-row"><b>Liquid PPF</b><span>Pintura + impactos leves</span><span>2–3 años</span><span class="perm-check">✓ Escrita</span></div>
+          <div class="perm-row"><b>Borograph</b><span>Pintura + rayado fino</span><span>3–5 años</span><span class="perm-check">✓ Escrita</span></div>
+          <div class="perm-row"><b>NanoPRO</b><span>Superficie total</span><span>5+ años</span><span class="perm-check">✓ Certificada</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADDITIONAL SERVICES -->
+<section class="section" id="adicionales">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">SERVICIOS ADICIONALES</p>
+      <h2 class="h2">El detalle que separa lo bueno de lo impecable</h2>
+    </div>
+    <div class="extra-grid" id="extraGrid"></div>
+  </div>
+</section>
+
+<!-- FEATURED WORK / TRABAJOS REALIZADOS -->
+<section class="section section-alt" id="trabajos">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">TRABAJOS REALIZADOS</p>
+      <h2 class="h2">Casos reales, no promesas.</h2>
+      <p class="lead">Cada proyecto documentado: el problema inicial, el proceso aplicado y el resultado final. Elegí un caso para ver el detalle completo.</p>
+    </div>
+    <div class="work-grid reveal" id="workGrid"></div>
+    <p class="work-note">Fotografía real de vehículos atendidos por SF Precision · San Juan, PR.</p>
+  </div>
+</section>
+
+<!-- NEED SELECTOR -->
+<section class="section section-alt" id="asesor-rapido">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center;">ASESOR RÁPIDO</p>
+      <h2 class="h2">¿Qué necesita realmente tu vehículo?</h2>
+      <p class="lead">Elegí la situación que más se parece a la tuya y te decimos qué experiencia le corresponde.</p>
+    </div>
+    <div class="need-grid" id="needGrid"></div>
+    <div class="need-result glass" id="needResult"></div>
+  </div>
+</section>
+
+<!-- AI DIAGNÓSTICO -->
+<section class="section section-alt" id="diagnostico">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">DIAGNÓSTICO VISUAL · TECNOLOGÍA EXCLUSIVA</p>
+      <h2 class="h2">Subí una foto. El sistema mide el estado real de tu pintura.</h2>
+      <p class="lead">Análisis de pintura, brillo, swirls, contaminación, oxidación y nivel de protección actual — con la mejora esperada al aplicar el proceso recomendado.</p>
+    </div>
+    <div class="diag-wrap">
+      <div>
+        <div class="diag-upload-zone reveal" id="diagZone">
+          <div class="diag-scan-bar" id="diagScanBar"></div>
+          <input type="file" accept="image/*" id="diagFileInput" aria-label="Subir foto del vehículo">
+          <div id="diagZoneContent">
+            <div class="diag-upload-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <h3>Subí la foto de tu vehículo</h3>
+            <p>Arrastrá una imagen o tocá para seleccionar. Pintura, interior o ambos.</p>
+          </div>
+          <div class="diag-preview-wrap" id="diagPreviewWrap">
+            <img class="diag-preview-img" id="diagPreviewImg" src="" alt="Vista previa">
+            <div class="diag-preview-overlay"><span class="diag-preview-change" id="diagChangeBtn">↑ Cambiar foto</span></div>
+          </div>
+        </div>
+        <div class="diag-btn-wrap reveal">
+          <button class="btn btn-blue" id="diagAnalyzeBtn" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+            <span id="diagBtnText">Seleccioná una foto primero</span>
+          </button>
+          <button class="diag-reset" id="diagResetBtn" style="display:none;">✕ Nuevo diagnóstico</button>
+        </div>
+      </div>
+      <div>
+        <div class="diag-placeholder reveal" id="diagPlaceholder">
+          <div class="diag-placeholder-item">
+            <div class="diag-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div><h4>Estado de pintura y brillo</h4><p>Detecta swirls, hologramas, oxidación y pérdida de profundidad óptica.</p></div>
+          </div>
+          <div class="diag-placeholder-item">
+            <div class="diag-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div><h4>Nivel de protección actual</h4><p>Estima cuánta protección cerámica o física le queda al vehículo hoy.</p></div>
+          </div>
+          <div class="diag-placeholder-item">
+            <div class="diag-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div><h4>Recomendación con % de mejora</h4><p>Paint Correction, Ceramic, Graphene o Liquid PPF — con la mejora esperada.</p></div>
+          </div>
+        </div>
+        <div class="diag-result" id="diagResult">
+          <div class="diag-result-top">
+            <p class="diag-system-tag">SF Precision Vision System™ — Informe de condición</p>
+            <div class="diag-report-meta">
+              <span class="live"><span class="dot"></span>Análisis completado</span>
+              <span id="diagReportRef"></span>
+            </div>
+            <div class="diag-score-row">
+              <div>
+                <p class="diag-score-label">ESTADO GENERAL DEL VEHÍCULO</p>
+                <p class="diag-score-val" id="diagScoreVal">--</p>
+                <p class="diag-score-sub" id="diagScoreSub">Analizando...</p>
+              </div>
+            </div>
+            <div class="diag-bars" id="diagBarsWrap"></div>
+          </div>
+          <div class="diag-result-mid" id="diagResultMid">
+            <div class="diag-pack-rec">
+              <span class="diag-pack-badge" id="diagPackBadge">RECOMENDADO</span>
+              <span class="diag-pack-name" id="diagPackName"></span>
+              <span class="diag-improve" id="diagImprove"></span>
+            </div>
+            <p class="diag-pack-reason" id="diagPackReason"></p>
+            <div class="diag-findings" id="diagFindings"></div>
+          </div>
+          <div class="diag-result-bot">
+            <a class="btn btn-blue btn-sm" id="diagWaBtn" target="_blank" href="#">Reservar este servicio</a>
+            <a class="btn btn-outline btn-sm" href="#precios">Ver todas las experiencias</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE & AFTER -->
+<section class="section" id="antes-despues">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">ANTES / DESPUÉS</p>
+      <h2 class="h2">Arrastrá y mirá la diferencia</h2>
+      <p class="lead">Deslizá el control sobre cada imagen para revelar el resultado real de cada proceso.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+    <p class="gallery-note">Fotografía real de trabajos realizados por SF Precision.</p>
+  </div>
+</section>
+
+<!-- PROCESO / PROTOCOLO -->
+<section class="section" id="proceso">
+  <div class="container" style="max-width:900px;">
+    <div class="section-head reveal">
+      <p class="eyebrow">EL PROTOCOLO SF PRECISION</p>
+      <h2 class="h2">Un protocolo, no una línea de producción.</h2>
+      <p class="lead">Desde el diagnóstico hasta la entrega, cada vehículo pasa por el mismo proceso — documentado, medible, sin pasos de más.</p>
+    </div>
+    <div class="process-track">
+      <div class="process-step reveal">
+        <span class="process-num">01</span>
+        <div class="process-body">
+          <h4>Diagnóstico inicial</h4>
+          <p>Evaluamos el estado real de la pintura, el nivel de protección actual y las condiciones específicas del vehículo. Antes de tocar nada, ya sabemos exactamente qué necesita.</p>
+          <span class="process-tag">Sin supuestos</span>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">02</span>
+        <div class="process-body">
+          <h4>Recepción y registro</h4>
+          <p>Documentamos el estado de ingreso con fotos y un checklist punto por punto. Es la referencia que usamos para medir el resultado final.</p>
+          <span class="process-tag">Trazabilidad</span>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">03</span>
+        <div class="process-body">
+          <h4>Descontaminación</h4>
+          <p>Removemos contaminantes ferrosos, alquitrán y residuos que un lavado convencional no llega a tocar. La base tiene que quedar limpia antes de corregir nada.</p>
+          <span class="process-tag">Preparación de superficie</span>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">04</span>
+        <div class="process-body">
+          <h4>Corrección</h4>
+          <p>Corregimos swirls, hologramas y oxidación siguiendo exactamente lo que el diagnóstico indicó — ni un paso más, ni uno menos.</p>
+          <span class="process-tag">Precisión, no volumen</span>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">05</span>
+        <div class="process-body">
+          <h4>Protección</h4>
+          <p>Aplicamos el sistema correspondiente a la experiencia elegida: cerámica, graphene o Liquid PPF. El sello que hace que el resultado se sostenga en el tiempo.</p>
+          <span class="process-tag">Resultados que duran</span>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <span class="process-num">06</span>
+        <div class="process-body">
+          <h4>Control de calidad y entrega</h4>
+          <p>Inspección final bajo luz cruzada. Recibís tu vehículo con el resultado documentado y un plan de mantenimiento sugerido.</p>
+          <span class="process-tag">El resultado habla</span>
+        </div>
+      </div>
+    </div>
+    <div class="process-cta reveal">
+      <a href="#diagnostico" class="btn btn-outline btn-sm">Empezar con tu diagnóstico</a>
+      <p>El mismo protocolo, sin importar la experiencia que elijas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" id="certificaciones">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow" style="justify-content:center;">CERTIFICACIONES</p>
+      <h2 class="h2">Estándares que respaldan cada trabajo</h2>
+    </div>
+    <div class="cert-strip" id="certStrip"></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-alt" id="precios">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">INVERSIÓN</p>
+      <h2 class="h2">Elegí tu vehículo, mirá el punto de partida</h2>
+      <p class="lead">El precio final se confirma siempre con un diagnóstico real. Esto es el punto de partida por tipo de vehículo.</p>
+    </div>
+    <div class="price-selector" id="priceSelector"></div>
+    <div class="price-grid" id="priceGrid"></div>
+    <p class="price-note">* Precios de referencia (USD), sujetos a confirmación tras diagnóstico presencial o por Precision Advisor™.</p>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="section" id="cobertura">
+  <div class="container coverage-wrap">
+    <div class="reveal">
+      <p class="eyebrow">COBERTURA</p>
+      <h2 class="h2">Zona Metro de San Juan</h2>
+      <p class="lead">Atendemos en taller y, según el proceso, coordinamos servicio en tu ubicación dentro del área de cobertura.</p>
+      <div class="zone-list">
+        <span class="zone-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>San Juan</span>
+        <span class="zone-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Guaynabo</span>
+        <span class="zone-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Carolina</span>
+        <span class="zone-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Bayamón</span>
+        <span class="zone-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Trujillo Alto</span>
+      </div>
+      <a href="https://maps.app.goo.gl/Px5YnDiszioznwgLA" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-top:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width:16px;height:16px;"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Ver ubicación del taller</a>
+    </div>
+    <div class="zone-map reveal">
+      <iframe src="https://www.google.com/maps?q=SF+PRECISiO2N+Detailing+Formula+San+Juan+Puerto+Rico&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="container">
+    <div class="home-service-block reveal">
+      <div class="home-service-text">
+        <p class="eyebrow">SERVICIO A DOMICILIO</p>
+        <h3>Llevamos el mismo estándar del taller hasta tu ubicación</h3>
+        <p>Además de atender en el taller, coordinamos el proceso de lavado detallado directamente en tu casa u oficina, dentro de la zona de cobertura — con el mismo equipo, los mismos productos y el mismo control de calidad.</p>
+        <div class="home-service-perks">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Mismo proceso y estándar que en taller</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Equipo móvil con agua y electricidad propias</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Coordinado 100% por cita previa</span>
+        </div>
+        <a href="#" id="homeServiceWaBtn" class="btn btn-blue" target="_blank" rel="noopener" style="margin-top:24px;">Agendar servicio a domicilio</a>
+      </div>
+      <div>
+        <div class="pm-video-card video-card--wide">
+          <span class="pm-video-tag">SF PRECISION · A DOMICILIO</span>
+          <video id="homeServiceVideo" playsinline preload="auto">
+            <source src="https://res.cloudinary.com/dgp7uhps3/video/upload/v1783210151/insta_video_95058_chchyh.mp4" type="video/mp4">
+          </video>
+          <button class="pm-video-play" id="homeServiceVideoPlay" aria-label="Reproducir video">
+            <span class="pm-video-play-circle">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </button>
+        </div>
+        <p class="pm-video-caption">Mirá cómo trabajamos el lavado detallado a domicilio, paso a paso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt" id="faq">
+  <div class="container" style="max-width:820px;">
+    <div class="section-head reveal">
+      <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+      <h2 class="h2">Todo lo que necesitás saber</h2>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section">
+  <div class="container">
+    <div class="glass reveal" style="text-align:center;border-radius:var(--radius-lg);padding:90px 40px;">
+      <h2 class="h2">Tu vehículo ya sabe que merece esto</h2>
+      <p class="lead" style="margin:18px auto 36px;">Solicitá tu diagnóstico y dejá que el resultado hable por nosotros.</p>
+      <a href="#diagnostico" class="btn btn-blue">Solicitar Diagnóstico</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <a href="#hero" class="footer-logo">
+        <img class="mark" src="https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210259/IMG_8454_m2qoq2_jsg1cz.png" alt="SF Precision" style="object-fit:contain;border-radius:8px;">
+        SF PRECISION
+      </a>
+      <div class="footer-certs" style="margin-top:16px;">
+        <span>ADS CERTIFIED</span><span>NANOPRO CERTIFIED</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@sfprecision" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22.5 12s0-3.2-.4-4.7c-.2-.9-.9-1.6-1.8-1.8C18.7 5 12 5 12 5s-6.7 0-8.3.5c-.9.2-1.6.9-1.8 1.8C1.5 8.8 1.5 12 1.5 12s0 3.2.4 4.7c.2.9.9 1.6 1.8 1.8C5.3 19 12 19 12 19s6.7 0 8.3-.5c.9-.2 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7z"/><path d="M10 9.5l5 2.5-5 2.5v-5z" fill="currentColor" stroke="none"/></svg>@sfprecision</a>
+      <a href="https://instagram.com/sf.precision" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>@sf.precision</a>
+      <a href="tel:+17876948663"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.3a2 2 0 012.1-.5c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg>(787) 694-8663</a>
+      <a href="https://maps.app.goo.gl/Px5YnDiszioznwgLA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Cómo llegar</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 SF Precision. Todos los derechos reservados.</span>
+    <span>Precision is Permanent.</span>
+  </div>
+</footer>
+
+<!-- PRECISION ADVISOR WIDGET -->
+<div class="advisor-hint" id="advisorHint">
+  <button class="advisor-hint-close" id="advisorHintClose" aria-label="Cerrar">×</button>
+  <p class="advisor-hint-title">Tu auto merece algo mejor que un lavado.</p>
+  <p class="advisor-hint-text">Contale a Precision Advisor™ el estado de tu pintura y te digo, al instante, el proceso exacto que necesita.</p>
+  <button class="advisor-hint-cta" id="advisorHintCta">Diagnosticar mi vehículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+</div>
+<button class="advisor-toggle" id="advisorToggle" aria-label="Abrir Precision Advisor">
+  <img src="https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210259/IMG_8454_m2qoq2_jsg1cz.png" alt="SF Precision" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+</button>
+<div class="advisor-panel" id="advisorPanel">
+  <div class="advisor-head">
+    <div class="advisor-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/></svg></div>
+    <div><h4>Precision Advisor™</h4><span>En línea</span></div>
+    <button class="advisor-close" id="advisorClose" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </div>
+  <div class="advisor-body" id="advisorBody"></div>
+  <form class="advisor-foot" id="advisorForm">
+    <input type="text" id="advisorInput" placeholder="Escribí tu mensaje..." autocomplete="off">
+    <button type="submit" class="advisor-send" aria-label="Enviar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-3-7-7-3z"/></svg></button>
+  </form>
+</div>
+
+<!-- CASE STUDY MODAL (Trabajos Realizados) -->
+<div class="pm-overlay" id="caseModalOverlay">
+  <div class="pm-modal" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle">
+    <button class="pm-close" id="caseModalClose" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    <div class="pm-body" id="caseModalBody"></div>
+  </div>
+</div>
+
+<!-- STUDIO / NOSOTROS MODAL -->
+<div class="pm-overlay pm-overlay--full" id="studioModalOverlay">
+  <div class="pm-modal pm-modal--full pm-modal--photo-bg" id="studioModal" role="dialog" aria-modal="true" aria-labelledby="studioModalTitle" style="--modal-photo-bg:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210117/IMG_8469_uucmzc.jpg')">
+    <button class="pm-back" id="studioModalClose" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg>
+      Volver
+    </button>
+    <div class="pm-body">
+      <p class="pm-eyebrow">DETRÁS DE SF PRECISION</p>
+      <h3 class="pm-title" id="studioModalTitle">The Studio Behind the Precision</h3>
+
+      <div class="pm-intro">
+        <div class="pm-intro-text">
+          <p>SF Precision nace en San Juan de la mano de F. Morales, con una idea simple: la mayoría de los "detailing" en Puerto Rico vendían lavados rápidos, no preservación real del vehículo. El estudio se formó para cerrar esa brecha, certificándose formalmente en procesos de corrección de pintura y protección de nivel concurso.</p>
+          <p>Cada vehículo entra a diagnóstico antes que a cualquier producto. No se aplica un paquete genérico — se mide el estado real de la pintura, el interior y el historial de mantenimiento, y desde ahí se define el proceso exacto que necesita, sin pasos de más ni de menos.</p>
+          <div class="pm-stat-strip">
+            <div class="pm-stat"><b>2</b><span>Certificaciones</span></div>
+            <div class="pm-stat"><b>100%</b><span>Por cita previa</span></div>
+            <div class="pm-stat"><b>1</b><span>Vehículo a la vez</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="pm-video-card">
+            <span class="pm-video-tag">SF PRECISION · EN VIDEO</span>
+            <video id="studioVideo" playsinline preload="auto">
+              <source src="https://res.cloudinary.com/dgp7uhps3/video/upload/v1783293472/insta_video_83914_ztifmi.mp4" type="video/mp4">
+            </video>
+            <button class="pm-video-play" id="studioVideoPlay" aria-label="Reproducir video">
+              <span class="pm-video-play-circle">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </button>
+          </div>
+          <p class="pm-video-caption">Conocé al equipo y cómo trabajamos, en primera persona.</p>
+        </div>
+      </div>
+
+      <div class="pm-statement">
+        <span class="lbl">Qué significa "Precision"</span>
+        <p>No es un adjetivo de marketing: es un estándar operativo. Medir espesores de pintura antes de pulir, documentar cada paso del proceso y usar exactamente el sistema de protección que el vehículo necesita — nunca el que es más fácil de vender.</p>
+      </div>
+
+      <div class="pm-lower-photo-bg" style="--modal-photo-bg-2:url('https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210118/IMG_8467_zwtu6a.jpg')">
+        <div class="pm-section-label"><span>Cómo operamos</span></div>
+        <div class="pm-info-grid">
+          <div class="pm-info-card">
+            <div class="pm-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.6 6.9L22 9.3l-5.5 4.8L18 22l-6-4-6 4 1.5-7.9L2 9.3l7.4-.4z"/></svg></div>
+            <h4>Certificaciones</h4>
+            <p>Certificados ADS (Auto Detailing Solutions) y NanoPRO, dos de los estándares más exigentes de la industria en corrección de pintura y sistemas de protección permanente.</p>
+          </div>
+          <div class="pm-info-card">
+            <div class="pm-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div>
+            <h4>Atención personalizada</h4>
+            <p>Trabajo exclusivamente por cita previa. Un vehículo a la vez, sin líneas de producción ni turnos apurados — el mismo equipo que diagnostica es el que ejecuta y entrega.</p>
+          </div>
+          <div class="pm-info-card">
+            <div class="pm-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+            <h4>Proceso interno</h4>
+            <p>Diagnóstico → medición → plan de trabajo → ejecución documentada → control de calidad → entrega con reporte. El mismo protocolo para cada vehículo.</p>
+          </div>
+          <div class="pm-info-card">
+            <div class="pm-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5.2-9.5-9.6C.8 8 2.2 4.5 5.6 3.6c2-.5 4 .3 5 2 1-1.7 3-2.5 5-2 3.4.9 4.8 4.4 3.1 7.8C19 15.8 12 21 12 21z"/></svg></div>
+            <h4>Cobertura</h4>
+            <p>Zona Metro de San Juan, Puerto Rico, con servicio 100% por cita — nunca por orden de llegada.</p>
+          </div>
+        </div>
+
+        <div class="pm-quote--big">
+          <span class="mark">"</span>
+          <p>Nos dedicamos a brindar resultados sobresalientes.</p>
+          <span>— F. MORALES · FUNDADOR</span>
+        </div>
+
+        <div class="pm-cta-row">
+          <p>¿Querés agendar una evaluación de tu vehículo?</p>
+          <a href="#" id="studioWaBtn" class="btn btn-blue btn-sm" target="_blank">Agendar evaluación</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= CONFIG ================= */
+const WHATSAPP_NUMBER = "17876948663"; // SF Precision · (787) 694-8663
+
+/* ================= HERO CTA · AGENDAR TURNO (WHATSAPP) ================= */
+const heroWaBtn = document.getElementById('heroWaBtn');
+if(heroWaBtn){
+  heroWaBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Quiero agendar un turno con SF Precision.')}`;
+}
+
+/* ================= HERO STAGE ================= */
+/* Fondo ahora es video real (ver <video class="hero-video"> en el HTML) */
+(function heroPremiumDesktop(){
+  const hero = document.getElementById('hero');
+  if(!hero) return;
+  const isDesktop = window.matchMedia('(min-width:769px)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!isDesktop || reduceMotion) return;
+
+  /* Micro-partículas ambientales, generadas una sola vez */
+  const field = document.getElementById('heroParticles');
+  if(field && window.matchMedia('(pointer:fine)').matches){
+    const count = 16;
+    for(let i=0;i<count;i++){
+      const p = document.createElement('span');
+      p.className = 'hero-particle';
+      const left = Math.random()*100;
+      const dur = 9 + Math.random()*10;
+      const delay = Math.random()*10;
+      const drift = (Math.random()*24-12).toFixed(0)+'px';
+      p.style.left = left+'%';
+      p.style.animationDuration = dur+'s';
+      p.style.animationDelay = '-'+delay+'s';
+      p.style.setProperty('--drift', drift);
+      field.appendChild(p);
+    }
+  }
+
+  /* Parallax de mouse extremadamente sutil sobre video + glow */
+  if(window.matchMedia('(pointer:fine)').matches){
+    const videoWrap = hero.querySelector('.hero-video-wrap');
+    const glow = hero.querySelector('.hero-glow');
+    let raf = null;
+    hero.addEventListener('mousemove', (e)=>{
+      const rect = hero.getBoundingClientRect();
+      const px = (e.clientX - rect.left)/rect.width - 0.5;
+      const py = (e.clientY - rect.top)/rect.height - 0.5;
+      if(raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(()=>{
+        if(videoWrap) videoWrap.style.transform = `translate(${px*-6}px, ${py*-6}px) scale(1.02)`;
+        if(glow) glow.style.transform = `translate(${px*14}px, ${py*14}px)`;
+      });
+    });
+    hero.addEventListener('mouseleave', ()=>{
+      if(videoWrap) videoWrap.style.transform = '';
+      if(glow) glow.style.transform = '';
+    });
+  }
+
+  /* Botones magnéticos, solo CTAs del hero */
+  hero.querySelectorAll('.hero-ctas .btn').forEach(btn=>{
+    btn.addEventListener('mousemove', e=>{
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width/2) * 0.25;
+      const y = (e.clientY - r.top - r.height/2) * 0.35;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', ()=>{ btn.style.transform = ''; });
+  });
+})();
+
+/* ================= ICONS ================= */
+const ICONS = {
+  headlight:'<path d="M5 9c0-3 3-5 9-5 6 0 9 4 9 8s-3 8-9 8c-6 0-9-2-9-5z"/><circle cx="11" cy="12" r="3"/>',
+  tar:'<path d="M4 20c4-8 8-12 8-16M12 4c4 4 8 8 8 16"/><circle cx="12" cy="12" r="2"/>',
+  glass:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/>',
+  wheel:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.4"/><path d="M12 4v3.5M12 16.5V20M4 12h3.5M16.5 12H20"/>',
+  windshield:'<path d="M3 15l2-8a2 2 0 012-1.5h10a2 2 0 012 1.5l2 8"/><path d="M3 15h18v3H3z"/>',
+  leather:'<path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"/>',
+  engine:'<path d="M14.7 6.3a4 4 0 10-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2 2-2.5-.5-.5-2.5z"/>',
+  interior:'<path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>',
+  new:'<path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4l-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/>',
+  scratch:'<path d="M4 20L20 4M9 20L20 9M4 15L15 4"/>',
+  gloss:'<circle cx="12" cy="12" r="9"/><path d="M9 9c0-2 1.5-3 3-3M15 15c0 2-1.5 3-3 3"/>',
+  sell:'<path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/>',
+  shield:'<path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/>',
+  check:'<path d="M20 6L9 17l-5-5"/>',
+  cert:'<path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"/>',
+  scan:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>',
+  carfax:'<path d="M4 17V7a2 2 0 012-2h12a2 2 0 012 2v10"/><path d="M4 17h16v2H4z"/>',
+  ppf:'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 4v16M16 4v16"/>'
+};
+function icon(name){ return `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${ICONS[name]||''}</svg>`; }
+
+/* ================= NAV ================= */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', ()=>{ nav.classList.toggle('scrolled', window.scrollY > 40); });
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuBackdrop = document.getElementById('menuBackdrop');
+burger.addEventListener('click', ()=>{
+  const isOpen = burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  menuBackdrop.classList.toggle('open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+menuBackdrop.addEventListener('click', ()=>{
+  burger.classList.remove('open'); mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open');
+  document.body.style.overflow = '';
+});
+document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click', ()=>{
+  burger.classList.remove('open'); mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+document.getElementById('navOpenNosotros')?.addEventListener('click', (e)=>{
+  e.preventDefault();
+  openStudioModal();
+});
+
+/* ================= EXTRA SERVICES ================= */
+const extraServices = [
+  {icon:'headlight', title:'Restauración de faros', price:'$60+', text:'Óptica opacada por UV recuperada a claridad de fábrica.'},
+  {icon:'glass', title:'Remoción de manchas en cristales', price:'$165+', text:'Pulido de cristales sin halos ni manchas de agua dura.'},
+  {icon:'windshield', title:'Cristal delantero + cerámica', price:'$115+', text:'Remoción de manchas y cerámica de 2 años en el parabrisas.'},
+  {icon:'tar', title:'Remoción de brea y aceites', price:'$35+', text:'Contaminantes de carretera eliminados sin dañar el clear coat.'},
+  {icon:'wheel', title:'Restauración de plásticos exteriores', price:'$250+', text:'Molduras y plásticos recuperados a su tono original.'},
+  {icon:'engine', title:'Limpieza y protección de motor', price:'$50+', text:'Compartimento del motor detallado con seguridad eléctrica.'},
+  {icon:'leather', title:'Acondicionamiento de butacas', price:'$45+', text:'Limpieza profunda en piel/vinyl, protegidas contra grietas.'},
+  {icon:'interior', title:'Shampoo en butacas', price:'$175+', text:'Extracción profunda de tapicería, sin residuo.'},
+  {icon:'interior', title:'Shampoo de alfombras (piso)', price:'$165+', text:'Piso extraído a profundidad, eliminando manchas y olores.'},
+  {icon:'interior', title:'Limpieza de tope interior', price:'$75+', text:'Techo interior limpiado sin dañar tapicería ni adhesivos.'},
+];
+const extraGrid = document.getElementById('extraGrid');
+extraServices.forEach((s,i)=>{
+  const card = document.createElement('div');
+  card.className = 'extra-card reveal';
+  card.style.transitionDelay = (i*0.05)+'s';
+  card.innerHTML = `<div class="extra-icon">${icon(s.icon)}</div><h4>${s.title}</h4><p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--blue-light);margin:6px 0 10px;">${s.price}</p><p>${s.text}</p>`;
+  extraGrid.appendChild(card);
+});
+
+/* ================= CORRECTION DIAGRAM (signature element) ================= */
+const corrData = {
+  'One Step':{ bars:[['Swirls superficiales',85],['Hologramas de pulido',70],['Oxidación leve',60],['Profundidad de color',75]], note:'Corrección de un paso — ideal cuando el defecto es principalmente superficial y la pintura conserva buen espesor de clear coat.' },
+  'Two Step':{ bars:[['Swirls superficiales',95],['Hologramas de pulido',90],['Oxidación moderada',85],['Rayones finos',70]], note:'Corte + refinado en dos etapas — para pintura con defecto acumulado que un solo paso no resuelve por completo.' },
+  'Paint Restoration':{ bars:[['Swirls superficiales',98],['Hologramas de pulido',97],['Oxidación severa',95],['Rayones profundos',80]], note:'Restauración completa — cuando la pintura perdió profundidad y brillo de forma generalizada. El proceso más exhaustivo que ofrecemos.' }
+};
+const corrTabs = document.getElementById('corrTabs');
+const corrBars = document.getElementById('corrBars');
+const corrNote = document.getElementById('corrNote');
+function renderCorr(key){
+  corrTabs.querySelectorAll('.corr-tab').forEach(t=>t.classList.toggle('active', t.dataset.key===key));
+  corrBars.innerHTML = '';
+  corrData[key].bars.forEach(([label,pct])=>{
+    const row = document.createElement('div');
+    row.className = 'corr-bar-row';
+    row.innerHTML = `<span class="corr-bar-label">${label}</span><div class="corr-bar-track"><div class="corr-bar-fill" data-target="${pct}"></div></div><span class="corr-bar-pct">${pct}%</span>`;
+    corrBars.appendChild(row);
+  });
+  corrNote.textContent = corrData[key].note;
+  requestAnimationFrame(()=>{
+    setTimeout(()=>{
+      corrBars.querySelectorAll('.corr-bar-fill').forEach(el=>{ el.style.width = el.dataset.target+'%'; });
+    }, 60);
+  });
+}
+Object.keys(corrData).forEach((key,i)=>{
+  const tab = document.createElement('button');
+  tab.type = 'button';
+  tab.className = 'corr-tab' + (i===0?' active':'');
+  tab.dataset.key = key;
+  tab.textContent = key;
+  tab.addEventListener('click', ()=>renderCorr(key));
+  corrTabs.appendChild(tab);
+});
+renderCorr('One Step');
+
+/* ================= NEED SELECTOR ================= */
+const needs = [
+  {icon:'new', label:'Mi auto es nuevo', tag:'RECOMENDADO', title:'Protección permanente desde el día uno', text:'Empezá con Ceramic & Graphene o Liquid PPF antes de que la pintura acumule el primer defecto.'},
+  {icon:'scratch', label:'Tiene rayones', tag:'RECOMENDADO', title:'Paint Correction', text:'Diagnosticamos si es One Step, Two Step o Restauración según la profundidad real del defecto.'},
+  {icon:'gloss', label:'Perdió brillo', tag:'RECOMENDADO', title:'Two Step + Ceramic', text:'Recuperamos profundidad de color con corrección y la sellamos con protección cerámica.'},
+  {icon:'sell', label:'Quiero venderlo', tag:'RECOMENDADO', title:'Maintenance + Detailing estético', text:'Presentación impecable para maximizar el valor percibido antes de la venta.'},
+  {icon:'shield', label:'Quiero protegerlo', tag:'RECOMENDADO', title:'Permanent Protection', text:'Liquid PPF, Borograph o NanoPRO — según el nivel de blindaje físico que buscás.'},
+];
+const needGrid = document.getElementById('needGrid');
+const needResult = document.getElementById('needResult');
+needs.forEach((n,i)=>{
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'need-btn';
+  btn.innerHTML = `${icon(n.icon)}<span>${n.label}</span>`;
+  btn.addEventListener('click', ()=>{
+    needGrid.querySelectorAll('.need-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    needResult.classList.remove('visible');
+    needResult.innerHTML = `<div class="need-result-icon">${icon(n.icon)}</div><div class="need-result-text"><span class="tag">${n.tag}</span><h4>${n.title}</h4><p>${n.text}</p></div><a href="#diagnostico" class="btn btn-blue btn-sm">Solicitar Diagnóstico</a>`;
+    requestAnimationFrame(()=>needResult.classList.add('visible'));
+  });
+  needGrid.appendChild(btn);
+});
+
+/* ================= CERTIFICATIONS ================= */
+const certs = [
+  {icon:'cert', title:'ADS Certified', text:'Estándar de aplicación profesional'},
+  {icon:'scan', title:'NanoPRO Certified', text:'Sistemas de protección permanente'},
+  {icon:'carfax', title:'CARFAX', text:'Historial y valor documentado'},
+  {icon:'ppf', title:'Liquid PPF', text:'Protección física certificada'},
+  {icon:'shield', title:'Borograph', text:'Blindaje de alto rendimiento'},
+];
+const certStrip = document.getElementById('certStrip');
+certs.forEach(c=>{
+  const cell = document.createElement('div');
+  cell.className = 'cert-cell';
+  cell.innerHTML = `<div class="cert-icon">${icon(c.icon)}</div><h4>${c.title}</h4><p>${c.text}</p>`;
+  certStrip.appendChild(cell);
+});
+
+/* ================= PRICING ================= */
+const vehicleSizes = ['Compacto','Mid Size/SUV','SUV Full Size/Luxury','Pick-Up'];
+const priceTable = {
+  'Compacto':             [['Lavado Detallado Elemental',65,'1.5-2.5 hrs · ext/int + encerado spray · requiere cerámico/grafeno previo'],['Lavado Detallado Intermedio',100,'2.5-3.5 hrs · remoción de brea + protección hidrofóbica en aros'],['Lavado Detallado Superior',285,'5.5-8 hrs · descontaminación 3 etapas + sellado Sio2 · hasta 6 meses'],['Acondicionamiento de Pintura',375,'One Cut & Finish · hasta 6 meses'],['Corrección de Pintura',495,'2 Step · hasta 6 meses'],['Protección de Grafeno Elemental',450,'Duración: 1 año'],['Restauración de Pintura',null,'3 etapas · sujeto a cotización']],
+  'Mid Size/SUV':         [['Lavado Detallado Elemental',70,'1.5-2.5 hrs · ext/int + encerado spray · requiere cerámico/grafeno previo'],['Lavado Detallado Intermedio',125,'2.5-3.5 hrs · remoción de brea + protección hidrofóbica en aros'],['Lavado Detallado Superior',325,'5.5-8 hrs · descontaminación 3 etapas + sellado Sio2 · hasta 6 meses'],['Acondicionamiento de Pintura',435,'One Cut & Finish · hasta 6 meses'],['Corrección de Pintura',625,'2 Step · hasta 6 meses'],['Protección de Grafeno Elemental',565,'Duración: 1 año'],['Restauración de Pintura',null,'3 etapas · sujeto a cotización']],
+  'SUV Full Size/Luxury': [['Lavado Detallado Elemental',75,'1.5-2.5 hrs · ext/int + encerado spray · requiere cerámico/grafeno previo'],['Lavado Detallado Intermedio',145,'2.5-3.5 hrs · remoción de brea + protección hidrofóbica en aros'],['Lavado Detallado Superior',375,'5.5-8 hrs · descontaminación 3 etapas + sellado Sio2 · hasta 6 meses'],['Acondicionamiento de Pintura',525,'One Cut & Finish · hasta 6 meses'],['Corrección de Pintura',725,'2 Step · hasta 6 meses'],['Protección de Grafeno Elemental',625,'Duración: 1 año'],['Restauración de Pintura',null,'3 etapas · sujeto a cotización']],
+  'Pick-Up':              [['Lavado Detallado Elemental',85,'1.5-2.5 hrs · ext/int + encerado spray · requiere cerámico/grafeno previo'],['Lavado Detallado Intermedio',175,'2.5-3.5 hrs · remoción de brea + protección hidrofóbica en aros'],['Lavado Detallado Superior',435,'5.5-8 hrs · descontaminación 3 etapas + sellado Sio2 · hasta 6 meses'],['Acondicionamiento de Pintura',650,'One Cut & Finish · hasta 6 meses'],['Corrección de Pintura',835,'2 Step · hasta 6 meses'],['Protección de Grafeno Elemental',675,'Duración: 1 año'],['Restauración de Pintura',null,'3 etapas · sujeto a cotización']],
+};
+const priceSelector = document.getElementById('priceSelector');
+const priceGrid = document.getElementById('priceGrid');
+function renderPrice(size){
+  priceSelector.querySelectorAll('.price-tab').forEach(t=>t.classList.toggle('active', t.dataset.size===size));
+  priceGrid.innerHTML = '';
+  priceTable[size].forEach(([name,price,note],i)=>{
+    const card = document.createElement('div');
+    card.className = 'price-card';
+    const priceHtml = price ? `<p class="price-val">$${price}+</p><p class="price-from">DESDE</p>` : `<p class="price-val" style="font-size:0.55em;">SUJETO A</p><p class="price-from">COTIZACIÓN</p>`;
+    const waMsg = price
+      ? `Hola! Quiero más información sobre ${name} para mi ${size} (desde $${price}).`
+      : `Hola! Quiero una cotización sobre ${name} para mi ${size}.`;
+    const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMsg)}`;
+    card.innerHTML = `<span class="exp-num">EXP. 0${i+1}</span><h4>${name}</h4>${priceHtml}<p>${note}</p><a class="price-wa-btn" href="${waHref}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18a7.95 7.95 0 01-4.06-1.11l-.29-.17-3 .79.8-2.93-.19-.3A7.96 7.96 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.29-5.71c-.23-.12-1.37-.68-1.58-.76-.21-.08-.37-.12-.52.12-.15.23-.6.76-.74.92-.14.15-.27.17-.5.06-.23-.12-.98-.36-1.87-1.15-.69-.62-1.16-1.38-1.29-1.61-.14-.23-.01-.36.1-.47.11-.11.23-.27.35-.41.11-.14.15-.23.23-.39.08-.15.04-.29-.02-.41-.06-.12-.52-1.25-.71-1.71-.19-.45-.38-.39-.52-.4h-.44c-.15 0-.4.06-.61.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.12.15 1.61 2.46 3.9 3.45.55.24.97.38 1.31.48.55.17 1.05.15 1.44.09.44-.07 1.37-.56 1.56-1.1.19-.54.19-1 .13-1.1-.06-.1-.21-.15-.44-.27z"/></svg>WhatsApp</a>`;
+    priceGrid.appendChild(card);
+  });
+}
+vehicleSizes.forEach((size,i)=>{
+  const tab = document.createElement('button');
+  tab.type = 'button';
+  tab.className = 'price-tab' + (i===1?' active':'');
+  tab.dataset.size = size;
+  tab.textContent = size;
+  tab.addEventListener('click', ()=>renderPrice(size));
+  priceSelector.appendChild(tab);
+});
+renderPrice('Compacto');
+
+/* ================= FAQ ================= */
+const faqs = [
+  {q:'¿Cuál es la diferencia entre Paint Correction y Ceramic & Graphene?', a:'Paint Correction elimina defectos existentes en la pintura (swirls, hologramas, oxidación). Ceramic & Graphene protege la pintura ya corregida para que esos defectos no vuelvan a aparecer tan rápido.'},
+  {q:'¿Necesito corrección de pintura antes de la protección cerámica?', a:'Recomendado, sí. Sellar defectos existentes bajo una capa cerámica los deja atrapados de forma permanente. Por eso diagnosticamos antes de aplicar cualquier protección.'},
+  {q:'¿Cómo sé si necesito Liquid PPF, Borograph o NanoPRO?', a:'Depende del nivel de exposición del vehículo y del blindaje físico que busques. Precision Advisor™ o el diagnóstico visual te orientan según tu caso específico.'},
+  {q:'¿Trabajan solo con cita previa?', a:'Sí. Cada experiencia requiere tiempo y condiciones específicas de trabajo, por lo que operamos exclusivamente bajo cita — sin excepciones ni servicio de paso.'},
+  {q:'¿Ofrecen servicio a domicilio?', a:'Sí. Además de atender en el taller, llevamos el mismo estándar, equipo y productos a tu casa u oficina dentro de la zona de cobertura: San Juan, Guaynabo, Carolina, Bayamón y Trujillo Alto. Se coordina 100% por cita previa.'},
+  {q:'¿Qué zonas cubren fuera del taller?', a:'San Juan, Guaynabo, Carolina, Bayamón y Trujillo Alto. Para otras zonas, escribinos y evaluamos el caso.'},
+  {q:'¿El diagnóstico visual reemplaza una inspección en persona?', a:'Es una primera lectura orientativa. La recomendación final siempre se confirma con inspección presencial antes de ejecutar cualquier proceso.'},
+];
+const faqList = document.getElementById('faqList');
+faqs.forEach(f=>{
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.innerHTML = `<button class="faq-q"><span>${f.q}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button><div class="faq-a"><p>${f.a}</p></div>`;
+  const btn = item.querySelector('.faq-q');
+  const ans = item.querySelector('.faq-a');
+  btn.addEventListener('click', ()=>{
+    const isOpen = item.classList.contains('open');
+    faqList.querySelectorAll('.faq-item.open').forEach(o=>{ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+    if(!isOpen){ item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight+'px'; }
+  });
+  faqList.appendChild(item);
+});
+
+/* ================= BEFORE/AFTER GALLERY ================= */
+const galleryItems = [
+  {before:'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280847/IMG_8487_ac6msx.jpg', after:'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280841/IMG_8488_rmor9e.jpg', caption:'Limpieza de tapizado — Toyota Corolla'},
+  {before:'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280848/IMG_8481_hcuq6m.jpg', after:'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280846/IMG_8482_rbfalx.jpg', caption:'Corrección de raya — Ford F-150'},
+  {before:'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280841/IMG_8474_c46fkr.jpg', after:'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783280853/IMG_8475_jbvhzm.jpg', caption:'Limpieza de interior'},
+];
+const galleryGrid = document.getElementById('galleryGrid');
+galleryItems.forEach((g,idx)=>{
+  const wrap = document.createElement('div');
+  wrap.className = 'ba reveal';
+  wrap.innerHTML = `
+    <div class="ba-frame" id="baFrame${idx}">
+      <div class="ba-layer ba-before"><img src="${g.before}" alt="Antes"><span class="ba-tag ba-tag-before">ANTES</span></div>
+      <div class="ba-layer ba-after" id="baAfter${idx}"><img src="${g.after}" alt="Después"><span class="ba-tag ba-tag-after">DESPUÉS</span></div>
+      <div class="ba-handle" id="baHandle${idx}">
+        <div class="ba-handle-line"></div>
+        <div class="ba-handle-grab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/></svg></div>
+      </div>
+    </div>
+    <p class="ba-caption">${g.caption}</p>
+  `;
+  galleryGrid.appendChild(wrap);
+  const frame = wrap.querySelector(`#baFrame${idx}`);
+  const after = wrap.querySelector(`#baAfter${idx}`);
+  const handle = wrap.querySelector(`#baHandle${idx}`);
+  let pct = 50;
+  function setPct(p){
+    pct = Math.max(3, Math.min(97, p));
+    after.style.setProperty('--x', pct+'%');
+    handle.style.left = pct+'%';
+  }
+  setPct(50);
+  let dragging = false;
+  function moveFromEvent(e){
+    const rect = frame.getBoundingClientRect();
+    const x = (e.touches? e.touches[0].clientX : e.clientX) - rect.left;
+    setPct((x/rect.width)*100);
+  }
+  frame.addEventListener('pointerdown', e=>{ dragging = true; frame.setPointerCapture(e.pointerId); moveFromEvent(e); });
+  frame.addEventListener('pointermove', e=>{ if(dragging) moveFromEvent(e); });
+  frame.addEventListener('pointerup', ()=>{ dragging = false; });
+  frame.addEventListener('pointerleave', ()=>{ dragging = false; });
+});
+
+/* ================= TRABAJOS REALIZADOS / CASE STUDIES ================= */
+const caseStudies = [
+  {
+    vehicle: 'Kia Sorento X-Line 2025',
+    tag: 'Protección permanente',
+    service: 'Permanent Protection — paquete completo',
+    result: 'El mejor momento para proteger tu SUV es recién salida del dealer.',
+    photo: 'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313238/IMG_8507_w8ll5c.jpg',
+    gallery: [
+      'https://res.cloudinary.com/dgp7uhps3/video/upload/v1783313243/insta_video_76550_i0osmy.mp4',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313237/IMG_8512_ruasyv.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313238/IMG_8509_zrxnh6.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313238/IMG_8510_co3d4t.jpg'
+    ],
+    problema: 'SUV recién entregada por el dealer, sin ningún tipo de protección aplicada de fábrica.',
+    proceso: 'Descontaminación completa de la superficie, preparación e inspección, y aplicación del paquete Permanent Protection — el más completo de nuestras cuatro experiencias.',
+    tiempo: 'Consultar según agenda',
+    resultadoFinal: 'SUV protegida desde el día uno, con el nivel de blindaje físico más alto que ofrecemos en SF Precision.'
+  },
+  {
+    vehicle: 'Toyota Tacoma 2025',
+    tag: 'Ceramic & Graphene',
+    service: 'Paquete de 3 años de protección',
+    result: 'Otra unidad protegida por nosotros — paquete completo de 3 años.',
+    photo: 'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313792/IMG_8514_lrulrx.jpg',
+    gallery: [
+      'https://res.cloudinary.com/dgp7uhps3/video/upload/v1783313795/insta_video_9595_acaulq.mp4',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313793/IMG_8519_ovm8dx.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313792/IMG_8520_h4nmgc.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313793/IMG_8518_but7vy.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783313792/IMG_8516_hta85c.jpg'
+    ],
+    problema: 'Camioneta sin protección, expuesta a uso diario y necesitando un plan de conservación a largo plazo.',
+    proceso: 'Lavado detallado interior, lavado y descontaminación de pintura, corrección de pintura, e instalación de Graphene Coating en pintura, cristales y plásticos.',
+    tiempo: 'Consultar según agenda',
+    resultadoFinal: '3 años de protección respaldados en pintura, cristales y plásticos, con brillo e hidrofobia de nivel Graphene.'
+  },
+  {
+    vehicle: 'Ford Ranger Raptor',
+    tag: 'Full PKG',
+    service: 'Graphene Coating — Full Package',
+    result: 'Ford Ranger Raptor Full PKG — protección integral de principio a fin.',
+    photo: 'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783314534/IMG_8539_xuxlvy.jpg',
+    gallery: [
+      'https://res.cloudinary.com/dgp7uhps3/video/upload/v1783314542/insta_video_46494_utuvql.mp4',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783314534/IMG_8533_za5r5i.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783314534/IMG_8537_pfdknd.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783314534/IMG_8535_lrggxv.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783314534/IMG_8536_hb72xk.jpg',
+      'https://res.cloudinary.com/dgp7uhps3/image/upload/v1783314535/IMG_8540_jirno3.jpg'
+    ],
+    problema: 'Camioneta sin ningún tipo de protección instalada, con necesidad de cobertura integral en interior, cristales, aros y pintura.',
+    proceso: 'Instalación cerámica interior, corrección de pintura, pulido de cristales, e instalación de Graphene Coating en aros, cristales, plásticos y pintura.',
+    tiempo: 'Consultar según agenda',
+    resultadoFinal: 'Vehículo con protección Graphene integral en todas sus superficies — interior, cristales, aros y pintura.'
+  }
+];
+
+const workGrid = document.getElementById('workGrid');
+caseStudies.forEach((c, idx) => {
+  const card = document.createElement('div');
+  card.className = 'work-card reveal';
+  card.innerHTML = `
+    <div class="work-photo">
+      <span class="work-tag">${c.tag}</span>
+      <img src="${c.photo}" alt="${c.vehicle} — ${c.service}" loading="lazy">
+    </div>
+    <div class="work-body">
+      <p class="work-vehicle">${c.vehicle}</p>
+      <p class="work-service">${c.service}</p>
+      <p class="work-result">${c.result}</p>
+      <button class="btn btn-outline work-cta" data-case="${idx}">Ver caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  `;
+  workGrid.appendChild(card);
+});
+
+const caseModalOverlay = document.getElementById('caseModalOverlay');
+const caseModalBody = document.getElementById('caseModalBody');
+const caseModalClose = document.getElementById('caseModalClose');
+
+function openCaseModal(idx){
+  const c = caseStudies[idx];
+  const waMsg = `Hola! Vi el caso de ${c.service} (${c.vehicle}) en la web y quiero un resultado similar en mi vehículo.`;
+  const galleryHtml = c.gallery.map((src, i) => {
+    if(src.endsWith('.mp4') || src.includes('/video/upload/')){
+      return `<video src="${src}" playsinline muted loop autoplay preload="metadata"></video>`;
+    }
+    return `<img src="${src}" alt="${i===0?'Proceso':'Resultado'} — ${c.vehicle}">`;
+  }).join('');
+  caseModalBody.innerHTML = `
+    <div class="pm-gallery">
+      ${galleryHtml}
+    </div>
+    <p class="pm-eyebrow">${c.tag}</p>
+    <h3 class="pm-title" id="caseModalTitle">${c.vehicle}</h3>
+    <div class="pm-grid">
+      <div class="pm-field full">
+        <span class="lbl">Problema inicial</span>
+        <p>${c.problema}</p>
+      </div>
+      <div class="pm-field full">
+        <span class="lbl">Proceso realizado</span>
+        <p>${c.proceso}</p>
+      </div>
+      <div class="pm-field">
+        <span class="lbl">Servicio aplicado</span>
+        <p class="val">${c.service}</p>
+      </div>
+      <div class="pm-field">
+        <span class="lbl">Tiempo estimado</span>
+        <p class="val">${c.tiempo}</p>
+      </div>
+      <div class="pm-field full">
+        <span class="lbl">Resultado final</span>
+        <p>${c.resultadoFinal}</p>
+      </div>
+    </div>
+    <div class="pm-cta-row">
+      <p>¿Tu vehículo tiene un caso parecido?</p>
+      <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMsg)}" class="btn btn-blue btn-sm" target="_blank">Quiero un resultado similar</a>
+    </div>
+  `;
+  caseModalOverlay.classList.add('open');
+  document.body.classList.add('pm-lock');
+}
+function closeCaseModal(){
+  caseModalOverlay.classList.remove('open');
+  document.body.classList.remove('pm-lock');
+}
+workGrid.addEventListener('click', e => {
+  const btn = e.target.closest('[data-case]');
+  if(btn) openCaseModal(Number(btn.dataset.case));
+});
+caseModalClose.addEventListener('click', closeCaseModal);
+caseModalOverlay.addEventListener('click', e => { if(e.target === caseModalOverlay) closeCaseModal(); });
+
+/* ================= STUDIO / NOSOTROS MODAL ================= */
+const studioModalOverlay = document.getElementById('studioModalOverlay');
+const studioModalClose = document.getElementById('studioModalClose');
+const openStudioModalBtn = document.getElementById('openStudioModal');
+const studioWaBtn = document.getElementById('studioWaBtn');
+studioWaBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Quiero agendar una evaluación con SF Precision.')}`;
+
+function openStudioModal(){ studioModalOverlay.classList.add('open'); document.body.classList.add('pm-lock'); }
+function closeStudioModal(){ studioModalOverlay.classList.remove('open'); document.body.classList.remove('pm-lock'); }
+openStudioModalBtn.addEventListener('click', openStudioModal);
+studioModalClose.addEventListener('click', closeStudioModal);
+studioModalOverlay.addEventListener('click', e => { if(e.target === studioModalOverlay) closeStudioModal(); });
+
+/* ================= STUDIO VIDEO · FIRST-FRAME THUMBNAIL + PLAY BUTTON ================= */
+const studioVideo = document.getElementById('studioVideo');
+const studioVideoPlay = document.getElementById('studioVideoPlay');
+if(studioVideo && studioVideoPlay){
+  studioVideo.addEventListener('loadedmetadata', () => {
+    try{ studioVideo.currentTime = 0.01; }catch(e){}
+  });
+  studioVideoPlay.addEventListener('click', () => {
+    studioVideo.setAttribute('controls','');
+    studioVideo.play();
+  });
+  studioVideo.addEventListener('play', () => { studioVideoPlay.classList.add('is-hidden'); });
+  studioVideo.addEventListener('pause', () => { if(!studioVideo.ended) studioVideoPlay.classList.remove('is-hidden'); });
+  studioVideo.addEventListener('ended', () => {
+    studioVideo.removeAttribute('controls');
+    studioVideo.currentTime = 0.01;
+    studioVideoPlay.classList.remove('is-hidden');
+  });
+}
+
+/* ================= HOME SERVICE VIDEO · FIRST-FRAME THUMBNAIL + PLAY BUTTON ================= */
+const homeServiceVideo = document.getElementById('homeServiceVideo');
+const homeServiceVideoPlay = document.getElementById('homeServiceVideoPlay');
+if(homeServiceVideo && homeServiceVideoPlay){
+  homeServiceVideo.addEventListener('loadedmetadata', () => {
+    try{ homeServiceVideo.currentTime = 0.01; }catch(e){}
+  });
+  homeServiceVideoPlay.addEventListener('click', () => {
+    homeServiceVideo.setAttribute('controls','');
+    homeServiceVideo.play();
+  });
+  homeServiceVideo.addEventListener('play', () => { homeServiceVideoPlay.classList.add('is-hidden'); });
+  homeServiceVideo.addEventListener('pause', () => { if(!homeServiceVideo.ended) homeServiceVideoPlay.classList.remove('is-hidden'); });
+  homeServiceVideo.addEventListener('ended', () => {
+    homeServiceVideo.removeAttribute('controls');
+    homeServiceVideo.currentTime = 0.01;
+    homeServiceVideoPlay.classList.remove('is-hidden');
+  });
+}
+
+const homeServiceWaBtn = document.getElementById('homeServiceWaBtn');
+if(homeServiceWaBtn){
+  homeServiceWaBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Quiero coordinar el servicio de detailing a domicilio con SF Precision.')}`;
+}
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){ closeCaseModal(); closeStudioModal(); }
+});
+
+/* ================= GSAP REVEALS ================= */
+if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
+  gsap.registerPlugin(ScrollTrigger);
+  document.querySelectorAll('.reveal').forEach(el=>{
+    gsap.to(el,{
+      opacity:1,y:0,duration:1,ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 88%'}
+    });
+  });
+  gsap.to('#certStrip .cert-cell',{
+    opacity:1,y:0,duration:.8,ease:'power3.out',stagger:.09,
+    scrollTrigger:{trigger:'#certStrip',start:'top 88%'}
+  });
+}else{
+  document.querySelectorAll('.reveal').forEach(el=>{ el.style.opacity=1; el.style.transform='none'; });
+  document.querySelectorAll('#certStrip .cert-cell').forEach(el=>{ el.style.opacity=1; el.style.transform='none'; });
+}
+
+/* ================= PRECISION ADVISOR CHAT ================= */
+const advisorToggle = document.getElementById('advisorToggle');
+const advisorPanel = document.getElementById('advisorPanel');
+const advisorClose = document.getElementById('advisorClose');
+const advisorBody = document.getElementById('advisorBody');
+const advisorForm = document.getElementById('advisorForm');
+const advisorInput = document.getElementById('advisorInput');
+document.getElementById('navOpenAdvisor')?.addEventListener('click', (e)=>{ e.preventDefault(); openAdvisor(); });
+
+const SYSTEM_PROMPT = `Sos "Precision Advisor™", el asesor digital de protección automotriz de SF Precision, un estudio certificado de detailing (ADS Certified, NanoPRO Certified) en San Juan, Puerto Rico, que trabaja exclusivamente con cita previa. Conversás como una persona real coordinando una cita por chat: elegante, cálida y precisa (máximo 2-3 oraciones por respuesta). Nunca uses la palabra "chatbot" ni menciones "IA" — sos Precision Advisor™.
+
+Experiencias disponibles:
+- MAINTENANCE DETAILING: lavado certificado, interior y exterior, para vehículos ya protegidos que necesitan conservar su condición.
+- PAINT CORRECTION: One Step, Two Step o Paint Restoration, según la profundidad de swirls, hologramas, oxidación y rayones.
+- CERAMIC & GRAPHENE PROTECTION: protección química de superficie con beneficios de UV, repelencia al agua, profundidad y menor mantenimiento.
+- PERMANENT PROTECTION: Liquid PPF, Borograph o NanoPRO, blindaje físico con garantía escrita.
+- Adicionales: restauración de faros, remoción de brea, pulido de cristales, cerámica para aros y cristales, protección de leather, motor detailing, shampoo de interiores.
+
+Reglas:
+1. Antes de preguntar algo nuevo, reconocé brevemente lo que la persona contó, y recién ahí segui con la siguiente pregunta. Que fluya como conversación, no como formulario.
+2. Una sola pregunta por turno. Necesitás averiguar, en orden natural: vehículo (marca/modelo), estado real de la pintura o qué le preocupa, zona donde está, y fecha que le viene bien.
+3. Nunca inventes un precio exacto. El precio final se confirma con el equipo tras diagnóstico, pero podés orientar qué experiencia conviene y por qué.
+4. Sé preciso, elegante y directo. Evitá frases genéricas de venta.
+5. En cuanto tengas vehículo, experiencia recomendada, zona y fecha (aunque sean aproximados), cerrá con una frase cálida invitando a confirmar por WhatsApp, y agregá, en una línea aparte al final del mensaje y sin ningún otro texto en esa línea, exactamente este formato: RESUMEN_JSON:{"nombre":"","vehiculo":"","servicio":"","ubicacion":"","fecha":"","detalle":""}
+6. Si falta un dato dejalo como cadena vacía en el JSON, pero intentá conseguir al menos vehículo y experiencia antes de cerrar. El campo "detalle" resume en una frase corta el estado del auto o pedido especial.`;
+
+let advisorHistory = [];
+let advisorOpened = false;
+
+function addMsg(role, text){
+  const div = document.createElement('div');
+  div.className = 'amsg ' + (role==='user'?'user':'bot');
+  div.textContent = text;
+  advisorBody.appendChild(div);
+  advisorBody.scrollTop = advisorBody.scrollHeight;
+  return div;
+}
+function addTyping(){
+  const div = document.createElement('div');
+  div.className = 'amsg bot typing';
+  div.innerHTML = '<span></span><span></span><span></span>';
+  advisorBody.appendChild(div);
+  advisorBody.scrollTop = advisorBody.scrollHeight;
+  return div;
+}
+function addSummary(data){
+  const wrap = document.createElement('div');
+  wrap.className = 'advisor-summary';
+  const text = `Hola SF Precision! Vengo de Precision Advisor™.
+
+*Nombre:* ${data.nombre||'-'}
+*Vehículo:* ${data.vehiculo||'-'}
+*Experiencia sugerida:* ${data.servicio||'-'}
+*Ubicación:* ${data.ubicacion||'-'}
+*Fecha:* ${data.fecha||'-'}
+*Detalle:* ${data.detalle||'-'}`;
+  wrap.innerHTML = `<p>Resumen para coordinar tu cita:</p><a class="btn btn-blue btn-sm" target="_blank" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}">Continuar por WhatsApp</a>`;
+  advisorBody.appendChild(wrap);
+  advisorBody.scrollTop = advisorBody.scrollHeight;
+}
+function openAdvisor(){
+  advisorPanel.classList.add('open');
+  hideAdvisorHint();
+  if(!advisorOpened){
+    advisorOpened = true;
+    addMsg('bot','Hola 👋 Soy Precision Advisor™. Contame, ¿qué vehículo tenés y qué le preocupa de la pintura o el estado general?');
+  }
+}
+advisorToggle.addEventListener('click', openAdvisor);
+advisorClose.addEventListener('click', ()=> advisorPanel.classList.remove('open'));
+
+/* ================= CHAT HINT BUBBLE (40s) ================= */
+const advisorHint = document.getElementById('advisorHint');
+const advisorHintClose = document.getElementById('advisorHintClose');
+const advisorHintCta = document.getElementById('advisorHintCta');
+function hideAdvisorHint(){ advisorHint.classList.remove('show'); }
+advisorHintClose.addEventListener('click', hideAdvisorHint);
+advisorHintCta.addEventListener('click', ()=>{ hideAdvisorHint(); openAdvisor(); });
+setTimeout(()=>{
+  if(!advisorOpened && !advisorPanel.classList.contains('open')){
+    advisorHint.classList.add('show');
+    setTimeout(hideAdvisorHint, 9000);
+  }
+}, 40000);
+
+advisorForm.addEventListener('submit', async function(e){
+  e.preventDefault();
+  const val = advisorInput.value.trim();
+  if(!val || advisorInput.disabled) return;
+  addMsg('user', val);
+  advisorHistory.push({role:'user', content: val});
+  advisorInput.value = '';
+  advisorInput.disabled = true;
+  advisorForm.querySelector('.advisor-send').disabled = true;
+  const typingEl = addTyping();
+
+  try{
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          ...advisorHistory.slice(-12)
+        ]
+      })
+    });
+    const data = await response.json();
+    if(data.error){ throw new Error(data.error || 'API error'); }
+    let fullText = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || '';
+    fullText = fullText.trim();
+    typingEl.remove();
+
+    let displayText = fullText;
+    let summaryData = null;
+    const marker = 'RESUMEN_JSON:';
+    const idx = fullText.indexOf(marker);
+    if(idx !== -1){
+      displayText = fullText.slice(0, idx).trim();
+      const jsonStr = fullText.slice(idx + marker.length).trim();
+      try{ summaryData = JSON.parse(jsonStr); }catch(err){ summaryData = null; }
+    }
+    if(displayText) addMsg('bot', displayText);
+    advisorHistory.push({role:'assistant', content: fullText});
+    if(summaryData) addSummary(summaryData);
+  }catch(err){
+    typingEl.remove();
+    addMsg('bot', 'No pude conectarme en este momento. Escribinos directo y coordinamos tu cita al instante.');
+    addSummary({});
+  }finally{
+    advisorInput.disabled = false;
+    advisorForm.querySelector('.advisor-send').disabled = false;
+    advisorInput.focus();
+  }
+});
+
+/* ================= AI DIAGNÓSTICO VISUAL ================= */
+(function(){
+  const zone = document.getElementById('diagZone');
+  const fileInput = document.getElementById('diagFileInput');
+  const previewWrap = document.getElementById('diagPreviewWrap');
+  const previewImg = document.getElementById('diagPreviewImg');
+  const zoneContent = document.getElementById('diagZoneContent');
+  const analyzeBtn = document.getElementById('diagAnalyzeBtn');
+  const btnText = document.getElementById('diagBtnText');
+  const scanBar = document.getElementById('diagScanBar');
+  const placeholder = document.getElementById('diagPlaceholder');
+  const result = document.getElementById('diagResult');
+  const scoreVal = document.getElementById('diagScoreVal');
+  const scoreSub = document.getElementById('diagScoreSub');
+  const barsWrap = document.getElementById('diagBarsWrap');
+  const packName = document.getElementById('diagPackName');
+  const packReason = document.getElementById('diagPackReason');
+  const improve = document.getElementById('diagImprove');
+  const findingsWrap = document.getElementById('diagFindings');
+  const waBtn = document.getElementById('diagWaBtn');
+  const resetBtn = document.getElementById('diagResetBtn');
+  const changeBtn = document.getElementById('diagChangeBtn');
+
+  let currentBase64 = null;
+
+  function toBase64(file){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result.split(',')[1]); r.onerror=rej; r.readAsDataURL(file); }); }
+
+  function pctStatus(pct){
+    if(pct>=85) return {label:'Excelente',cls:'ok'};
+    if(pct>=65) return {label:'Bueno',cls:'ok'};
+    if(pct>=45) return {label:'Regular',cls:'warn'};
+    return {label:'Crítico',cls:'danger'};
+  }
+
+  function makeReportRef(){
+    const d = new Date();
+    const yy = String(d.getFullYear()).slice(-2);
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    const dd = String(d.getDate()).padStart(2,'0');
+    const seq = Math.floor(100+Math.random()*900);
+    return 'REF SFP-' + yy + mm + dd + '-' + seq;
+  }
+
+  function handleFile(file){
+    if(!file||!file.type.startsWith('image/')) return;
+    const url = URL.createObjectURL(file);
+    previewImg.src = url;
+    zoneContent.style.display = 'none';
+    previewWrap.style.display = 'block';
+    analyzeBtn.disabled = false;
+    analyzeBtn.classList.remove('error');
+    btnText.textContent = 'Analizar vehículo';
+    toBase64(file).then(b64=>{ currentBase64 = b64; });
+    result.classList.remove('visible');
+    placeholder.style.display = 'flex';
+    resetBtn.style.display = 'none';
+  }
+
+  fileInput.addEventListener('change', e=>{ if(e.target.files[0]) handleFile(e.target.files[0]); });
+  zone.addEventListener('dragover', e=>{ e.preventDefault(); zone.classList.add('drag'); });
+  zone.addEventListener('dragleave', ()=>zone.classList.remove('drag'));
+  zone.addEventListener('drop', e=>{ e.preventDefault(); zone.classList.remove('drag'); if(e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
+  changeBtn.addEventListener('click', e=>{ e.stopPropagation(); fileInput.value=''; fileInput.click(); });
+  resetBtn.addEventListener('click', ()=>{
+    fileInput.value=''; currentBase64=null; previewImg.src='';
+    previewWrap.style.display='none'; zoneContent.style.display='block';
+    analyzeBtn.disabled=true; btnText.textContent='Seleccioná una foto primero';
+    result.classList.remove('visible'); placeholder.style.display='flex';
+    resetBtn.style.display='none'; barsWrap.innerHTML=''; findingsWrap.innerHTML='';
+  });
+
+  analyzeBtn.addEventListener('click', async ()=>{
+    if(!currentBase64) return;
+    analyzeBtn.classList.add('loading');
+    btnText.textContent = 'Analizando...';
+    scanBar.style.display = 'block';
+
+    const prompt = [
+      'Sos un experto certificado en detailing automotriz de nivel concurso (ADS / NanoPRO).',
+      'Analiza esta foto de un vehículo y responde UNICAMENTE con un JSON valido (sin markdown, sin backticks, sin texto extra) con esta estructura exacta:',
+      '{',
+      '  "scoreLabel": "texto de 2-3 palabras describiendo el estado general (ej: Pintura muy deteriorada, Estado regular, Buen estado, Casi nivel concurso)",',
+      '  "dimensions": [',
+      '    {"label": "Pintura y brillo", "pct": NUMERO_0_A_100},',
+      '    {"label": "Swirls y hologramas", "pct": NUMERO_0_A_100},',
+      '    {"label": "Contaminación / oxidación", "pct": NUMERO_0_A_100},',
+      '    {"label": "Nivel de protección actual", "pct": NUMERO_0_A_100}',
+      '  ],',
+      '  "pack": "Maintenance, Paint Correction, Ceramic & Graphene o Permanent Protection segun cual recomiendas",',
+      '  "packReason": "1-2 oraciones explicando por que esa experiencia, en tono profesional y preciso",',
+      '  "improvement": "numero entero 0-100 estimando el % de mejora esperado tras el proceso",',
+      '  "findings": ["hallazgo 1 concreto", "hallazgo 2 concreto", "hallazgo 3 concreto"]',
+      '}',
+      'Reemplaza NUMERO_0_A_100 con un numero entero entre 0 y 100. Cada "pct" es el nivel actual de esa dimension (100 = perfecto).',
+      'Si no podes ver bien alguna dimension porque la foto no la muestra, estima 60 por defecto.',
+      'Se honesto pero constructivo. Recomienda Maintenance si el vehiculo esta en buen estado y solo necesita conservacion.',
+      'Recomienda Paint Correction si hay swirls, hologramas u oxidacion visibles. Recomienda Ceramic & Graphene si la pintura esta en buen estado pero sin proteccion visible. Recomienda Permanent Protection si el pedido implica blindaje fisico o el vehiculo es nuevo.'
+    ].join(' ');
+
+    try {
+      const resp = await fetch('/api/vision', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          image: currentBase64,
+          mimeType: 'image/jpeg',
+          prompt: prompt
+        })
+      });
+      const data = await resp.json();
+      if(data.error) throw new Error(data.error);
+      let raw = (data.content || '').trim();
+      raw = raw.replace(/```json|```/g,'').trim();
+      const parsed = JSON.parse(raw);
+      renderResult(parsed);
+    } catch(err) {
+      btnText.textContent = 'Error — intentá de nuevo';
+      analyzeBtn.classList.remove('loading');
+      analyzeBtn.classList.add('error');
+      scanBar.style.display = 'none';
+      console.error(err);
+      setTimeout(()=>{
+        analyzeBtn.classList.remove('error');
+        btnText.textContent = 'Analizar vehículo';
+      }, 2600);
+    }
+  });
+
+  function renderResult(d){
+    scanBar.style.display = 'none';
+    analyzeBtn.classList.remove('loading');
+    btnText.textContent = 'Análisis completado ✓';
+    analyzeBtn.disabled = true;
+    resetBtn.style.display = 'block';
+    placeholder.style.display = 'none';
+    result.classList.add('visible');
+
+    const avgPct = Math.round(d.dimensions.reduce((a,b)=>a+b.pct,0)/d.dimensions.length);
+    scoreVal.textContent = avgPct + '/100';
+    scoreSub.textContent = d.scoreLabel || '';
+    const reportRefEl = document.getElementById('diagReportRef');
+    if(reportRefEl) reportRefEl.textContent = makeReportRef();
+
+    barsWrap.innerHTML = '';
+    d.dimensions.forEach(dim=>{
+      const st = pctStatus(dim.pct);
+      const row = document.createElement('div');
+      row.className = 'diag-bar-row';
+      row.innerHTML = '<span style="color:var(--text-dim)">' + dim.label + '</span><div class="diag-bar-track"><div class="diag-bar-fill" style="width:0%" data-target="' + dim.pct + '"></div></div><span class="diag-bar-pct">' + dim.pct + '<span class="diag-bar-status ' + st.cls + '">' + st.label + '</span></span>';
+      barsWrap.appendChild(row);
+    });
+    setTimeout(()=>{
+      barsWrap.querySelectorAll('.diag-bar-fill').forEach(el=>{ el.style.width = el.dataset.target + '%'; });
+    }, 80);
+
+    packName.textContent = d.pack || 'Paint Correction';
+    packReason.textContent = d.packReason || '';
+    improve.textContent = d.improvement ? ('+' + d.improvement + '% mejora esperada') : '';
+
+    findingsWrap.innerHTML = '';
+    (d.findings||[]).forEach(f=>{
+      const el = document.createElement('div');
+      el.className = 'diag-finding';
+      el.textContent = f;
+      findingsWrap.appendChild(el);
+    });
+
+    var findings = (d.findings||[]).join('\n\u2022 ');
+    var msg = 'Hola SF Precision! Use el diagnostico visual del sitio y me recomendaron *' + d.pack + '*.\n\nResultados:\n\u2022 Estado general: ' + avgPct + '/100 - ' + (d.scoreLabel||'') + '\n\u2022 ' + findings + '\n\n\u00bfPueden ayudarme a coordinar una cita?';
+    waBtn.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+    waBtn.textContent = 'Reservar ' + d.pack;
+  }
+})();
+</script>
+</body>
+</html>
