@@ -2,13 +2,15 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <link rel="icon" type="image/png" href="https://res.cloudinary.com/dgp7uhps3/image/upload/v1783210259/IMG_8454_m2qoq2_jsg1cz.png">
 <title>SF Precision — Certified Professional Auto Detailing · San Juan, PR</title>
 <meta name="description" content="SF Precision: preservación de vehículos de nivel concurso en San Juan, Puerto Rico. Corrección profesional de pintura, protección cerámica y graphene, y Liquid PPF. ADS & NanoPRO Certified. Solo con cita previa.">
 <meta name="keywords" content="auto detailing San Juan, paint correction Puerto Rico, ceramic coating, graphene coating, liquid PPF, NanoPRO, ADS certified detailer, SF Precision">
 <meta property="og:title" content="SF Precision — Precision is Permanent.">
 <meta property="og:description" content="Preservación, corrección y protección automotriz de nivel concurso. San Juan, Puerto Rico.">
+<link rel="preconnect" href="https://res.cloudinary.com">
+<link rel="preload" as="video" href="https://res.cloudinary.com/dgp7uhps3/video/upload/v1783210929/insta_video_47885_fzsdhk.mp4" type="video/mp4" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -1064,6 +1066,14 @@ footer{border-top:1px solid var(--line-soft);padding:70px 0 32px;background:var(
 @keyframes typingDot{0%,60%,100%{opacity:.3;transform:translateY(0);}30%{opacity:1;transform:translateY(-3px);}}
 .advisor-summary{margin:6px 0 4px;border:1px solid var(--blue-deep);background:rgba(34,195,232,.08);border-radius:var(--radius-sm);padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
 .advisor-summary p{font-size:12px;color:var(--text-dim);}
+.advisor-evaluation{margin:6px 0 4px;border:1px solid var(--line);background:var(--surface-strong);border-radius:var(--radius-sm);padding:18px 18px 16px;display:flex;flex-direction:column;gap:13px;}
+.advisor-evaluation .eval-head{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-light);display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--line-soft);}
+.advisor-evaluation .eval-row{display:flex;flex-direction:column;gap:3px;}
+.advisor-evaluation .eval-row .lbl{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-faint);}
+.advisor-evaluation .eval-row .val{font-size:13.5px;color:var(--text);font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.4;}
+.advisor-evaluation .eval-row .val.dim{font-family:'Inter',sans-serif;font-weight:400;font-size:12.5px;color:var(--text-dim);}
+.advisor-evaluation .eval-cta{margin-top:2px;display:flex;flex-direction:column;gap:9px;}
+.advisor-evaluation .eval-cta p{font-size:11.5px;color:var(--text-faint);}
 .advisor-foot{padding:14px 16px;border-top:1px solid var(--line-soft);display:flex;gap:10px;}
 .advisor-foot input{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:100px;padding:11px 16px;color:var(--text);font-size:16px;font-family:'Inter',sans-serif;}
 .advisor-foot input:focus{border-color:var(--blue);}
@@ -1228,7 +1238,7 @@ footer{border-top:1px solid var(--line-soft);padding:70px 0 32px;background:var(
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-video-wrap">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline webkit-playsinline="true" preload="auto" poster="https://res.cloudinary.com/dgp7uhps3/video/upload/so_0/v1783210929/insta_video_47885_fzsdhk.jpg" fetchpriority="high">
       <source src="https://res.cloudinary.com/dgp7uhps3/video/upload/v1783210929/insta_video_47885_fzsdhk.mp4" type="video/mp4">
     </video>
   </div>
@@ -1866,6 +1876,43 @@ if(heroWaBtn){
   heroWaBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Quiero agendar un turno con SF Precision.')}`;
 }
 
+/* ================= HERO VIDEO · AUTOPLAY FORZADO E INSTANTÁNEO ================= */
+(function heroForceAutoplay(){
+  const heroVideo = document.getElementById('heroVideo');
+  if(!heroVideo) return;
+
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.playsInline = true;
+
+  function attemptPlay(){
+    const p = heroVideo.play();
+    if(p !== undefined){
+      p.catch(() => {
+        // Bloqueado por el navegador (poco común estando muted+playsinline).
+        // Reintenta apenas haya cualquier señal de interacción o el tab vuelva a estar visible,
+        // sin depender de que el usuario toque el video en sí.
+        const retry = () => { heroVideo.play().catch(()=>{}); };
+        ['touchstart','click','scroll','keydown'].forEach(evt =>
+          document.addEventListener(evt, retry, { once:true, passive:true })
+        );
+        document.addEventListener('visibilitychange', () => {
+          if(document.visibilityState === 'visible') retry();
+        });
+      });
+    }
+  }
+
+  if(heroVideo.readyState >= 2){
+    attemptPlay();
+  } else {
+    heroVideo.addEventListener('loadeddata', attemptPlay, { once:true });
+  }
+  // Segundo intento apenas el DOM está listo, por si el primero corrió antes de tiempo.
+  document.addEventListener('DOMContentLoaded', attemptPlay);
+  window.addEventListener('pageshow', attemptPlay);
+})();
+
 /* ================= HERO STAGE ================= */
 /* Fondo ahora es video real (ver <video class="hero-video"> en el HTML) */
 (function heroPremiumDesktop(){
@@ -2406,22 +2453,42 @@ const advisorForm = document.getElementById('advisorForm');
 const advisorInput = document.getElementById('advisorInput');
 document.getElementById('navOpenAdvisor')?.addEventListener('click', (e)=>{ e.preventDefault(); openAdvisor(); });
 
-const SYSTEM_PROMPT = `Sos "Precision Advisor™", el asesor digital de protección automotriz de SF Precision, un estudio certificado de detailing (ADS Certified, NanoPRO Certified) en San Juan, Puerto Rico, que trabaja exclusivamente con cita previa. Conversás como una persona real coordinando una cita por chat: elegante, cálida y precisa (máximo 2-3 oraciones por respuesta). Nunca uses la palabra "chatbot" ni menciones "IA" — sos Precision Advisor™.
+const SYSTEM_PROMPT = `Sos parte del equipo de asesoramiento de SF Precision, un estudio certificado de detailing (ADS Certified, NanoPRO Certified) en San Juan, Puerto Rico, que atiende exclusivamente con cita previa. No sos un chatbot ni una inteligencia artificial, y nunca lo mencionás — sos un Service Advisor real coordinando una cita por chat, como el asesor que recibe un vehículo en un estudio de detailing de primer nivel.
 
-Experiencias disponibles:
-- MAINTENANCE DETAILING: lavado certificado, interior y exterior, para vehículos ya protegidos que necesitan conservar su condición.
-- PAINT CORRECTION: One Step, Two Step o Paint Restoration, según la profundidad de swirls, hologramas, oxidación y rayones.
-- CERAMIC & GRAPHENE PROTECTION: protección química de superficie con beneficios de UV, repelencia al agua, profundidad y menor mantenimiento.
-- PERMANENT PROTECTION: Liquid PPF, Borograph o NanoPRO, blindaje físico con garantía escrita.
+CÓMO HABLÁS
+Escribís como una persona real por WhatsApp: mensajes cortos (1 a 3 oraciones), naturales, cálidos, elegantes. Nunca hacés más de una pregunta por mensaje. Nunca hagas listas gigantes ni textos largos. Antes de preguntar algo nuevo, reconocé brevemente lo que la persona te contó (ej: "Entendido, un BMW negro..." en vez de arrancar directo con la siguiente pregunta). Recordás todo lo que ya te dijeron durante la conversación y lo usás con naturalidad — nunca preguntás de nuevo algo que ya respondieron.
+
+TU OBJETIVO
+No es "responder preguntas". Es entender qué necesita el vehículo, recomendar el tratamiento correcto explicando siempre el motivo, resolver dudas con simpleza, generar confianza, y juntar los datos necesarios para coordinar la cita — sin presionar la venta en ningún momento y sin sonar vendedor. Sonás a asesor técnico, no a vendedor.
+
+FLUJO NATURAL (adaptalo según lo que diga la persona, nunca sigas un guion rígido)
+1. Descubrir qué busca: proteger el auto, tiene rayones, perdió brillo, lo acaba de comprar, lo quiere vender, necesita un lavado, no sabe bien qué necesita, etc. Si solo saluda, saludá de vuelta y preguntá en qué podés ayudar.
+2. Entender el vehículo: marca, modelo, año, color — de a una pregunta por vez, en el orden que fluya mejor en la charla.
+3. Entender el estado real: rayones, pérdida de brillo, manchas de agua, protección actual, si duerme bajo techo, uso diario. Preguntá solo lo que haga falta según lo que ya contó.
+4. Detectar el objetivo real: mantener, restaurar, corregir, proteger, preparar para venta, recuperar brillo, interior, cerámica, graphene, Liquid PPF, etc.
+5. Recomendar el tratamiento adecuado explicando SIEMPRE el motivo en 1-2 oraciones. Nunca recomiendes un servicio sin haber entendido el caso primero.
+6. Resolver dudas de forma simple y profesional si preguntan cuánto dura, qué diferencia hay, si vale la pena, qué incluye. Nunca respondas como una enciclopedia.
+7. Cuando ya haya interés real, empezá a pedir de forma conversacional (nunca todo junto): nombre, ciudad, y una fecha aproximada que le venga bien.
+
+EXPERIENCIAS Y SERVICIOS QUE OFRECE SF PRECISION
+- MAINTENANCE DETAILING: lavado certificado interior y exterior, para vehículos ya protegidos que solo necesitan conservación.
+- PAINT CORRECTION (One Step, Two Step o Paint Restoration): según la profundidad real de swirls, hologramas, oxidación y rayones.
+- CERAMIC & GRAPHENE PROTECTION: protección química de superficie — UV, repelencia al agua, profundidad de color, menor mantenimiento.
+- PERMANENT PROTECTION (Liquid PPF, Borograph o NanoPRO): blindaje físico con garantía escrita.
 - Adicionales: restauración de faros, remoción de brea, pulido de cristales, cerámica para aros y cristales, protección de leather, motor detailing, shampoo de interiores.
 
-Reglas:
-1. Antes de preguntar algo nuevo, reconocé brevemente lo que la persona contó, y recién ahí segui con la siguiente pregunta. Que fluya como conversación, no como formulario.
-2. Una sola pregunta por turno. Necesitás averiguar, en orden natural: vehículo (marca/modelo), estado real de la pintura o qué le preocupa, zona donde está, y fecha que le viene bien.
-3. Nunca inventes un precio exacto. El precio final se confirma con el equipo tras diagnóstico, pero podés orientar qué experiencia conviene y por qué.
-4. Sé preciso, elegante y directo. Evitá frases genéricas de venta.
-5. En cuanto tengas vehículo, experiencia recomendada, zona y fecha (aunque sean aproximados), cerrá con una frase cálida invitando a confirmar por WhatsApp, y agregá, en una línea aparte al final del mensaje y sin ningún otro texto en esa línea, exactamente este formato: RESUMEN_JSON:{"nombre":"","vehiculo":"","servicio":"","ubicacion":"","fecha":"","detalle":""}
-6. Si falta un dato dejalo como cadena vacía en el JSON, pero intentá conseguir al menos vehículo y experiencia antes de cerrar. El campo "detalle" resume en una frase corta el estado del auto o pedido especial.`;
+REGLAS QUE NUNCA ROMPÉS
+- Nunca menciones que sos una IA, un chatbot, ni digas "como inteligencia artificial".
+- Nunca inventes un precio exacto: el precio final se confirma con el equipo tras diagnóstico, pero podés orientar qué experiencia conviene y por qué.
+- Nunca prometas resultados imposibles ni exageres.
+- Nunca presiones la venta ni suenes insistente.
+- Nunca hagas más de una pregunta por mensaje.
+- Siempre explicá por qué recomendás un tratamiento.
+
+CIERRE DE LA CONVERSACIÓN
+Cuando ya tengas vehículo (marca/modelo, idealmente año y color), un objetivo o problema claro, el tratamiento recomendado, ciudad y una fecha aproximada, cerrá con una frase cálida invitando a confirmar la evaluación (algo como "¿Te parece bien esta recomendación?"), y agregá — en una línea aparte al final del mensaje, sin ningún otro texto en esa línea — exactamente este formato: RESUMEN_JSON:{"nombre":"","vehiculo":"","color":"","ciudad":"","problema":"","objetivo":"","tratamiento":"","tiempo":"","fecha":""}
+
+Si falta un dato dejalo como cadena vacía, pero intentá tener al menos vehículo y tratamiento recomendado antes de cerrar. "vehiculo" es marca, modelo y año (ej: "BMW M3 Competition 2022"). "problema" resume en una frase corta el estado informado del auto. "objetivo" resume qué busca lograr el cliente. "tiempo" es tu estimación de días de trabajo para ese tratamiento.`;
 
 let advisorHistory = [];
 let advisorOpened = false;
@@ -2442,18 +2509,46 @@ function addTyping(){
   advisorBody.scrollTop = advisorBody.scrollHeight;
   return div;
 }
+function buildWaMessage(data){
+  const lines = [
+    'Hola SF Precision.',
+    '',
+    'Hablé con el asesor y me gustaría continuar con la evaluación.',
+    '',
+    'Información recopilada',
+    '',
+    `Nombre: ${data.nombre || '-'}`,
+    `Vehículo: ${data.vehiculo || '-'}`
+  ];
+  if(data.color) lines.push(`Color: ${data.color}`);
+  lines.push(
+    `Ciudad: ${data.ciudad || '-'}`,
+    `Problema detectado: ${data.problema || '-'}`,
+    `Objetivo: ${data.objetivo || '-'}`,
+    `Tratamiento recomendado: ${data.tratamiento || '-'}`,
+    `Fecha estimada: ${data.fecha || '-'}`,
+    '',
+    'Quedo atento.',
+    'Muchas gracias.'
+  );
+  return lines.join('\n');
+}
 function addSummary(data){
   const wrap = document.createElement('div');
-  wrap.className = 'advisor-summary';
-  const text = `Hola SF Precision! Vengo de Precision Advisor™.
-
-*Nombre:* ${data.nombre||'-'}
-*Vehículo:* ${data.vehiculo||'-'}
-*Experiencia sugerida:* ${data.servicio||'-'}
-*Ubicación:* ${data.ubicacion||'-'}
-*Fecha:* ${data.fecha||'-'}
-*Detalle:* ${data.detalle||'-'}`;
-  wrap.innerHTML = `<p>Resumen para coordinar tu cita:</p><a class="btn btn-blue btn-sm" target="_blank" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}">Continuar por WhatsApp</a>`;
+  wrap.className = 'advisor-evaluation';
+  wrap.innerHTML = `
+    <div class="eval-head">◆ Vehicle Evaluation</div>
+    <div class="eval-row"><span class="lbl">Cliente</span><span class="val">${data.nombre || '—'}</span></div>
+    <div class="eval-row"><span class="lbl">Vehículo</span><span class="val">${data.vehiculo || '—'}${data.color ? ' · ' + data.color : ''}</span></div>
+    ${data.objetivo ? `<div class="eval-row"><span class="lbl">Objetivo</span><span class="val dim">${data.objetivo}</span></div>` : ''}
+    ${data.problema ? `<div class="eval-row"><span class="lbl">Estado informado</span><span class="val dim">${data.problema}</span></div>` : ''}
+    <div class="eval-row"><span class="lbl">Tratamiento recomendado</span><span class="val">${data.tratamiento || '—'}</span></div>
+    ${data.tiempo ? `<div class="eval-row"><span class="lbl">Tiempo estimado</span><span class="val dim">${data.tiempo}</span></div>` : ''}
+    <div class="eval-cta">
+      <p>¿Te parece bien esta recomendación? Confirmá tu cita por WhatsApp:</p>
+      <a class="btn btn-blue btn-sm" target="_blank" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWaMessage(data))}">Continuar por WhatsApp</a>
+    </div>
+  `;
   advisorBody.appendChild(wrap);
   advisorBody.scrollTop = advisorBody.scrollHeight;
 }
@@ -2462,7 +2557,7 @@ function openAdvisor(){
   hideAdvisorHint();
   if(!advisorOpened){
     advisorOpened = true;
-    addMsg('bot','Hola 👋 Soy Precision Advisor™. Contame, ¿qué vehículo tenés y qué le preocupa de la pintura o el estado general?');
+    addMsg('bot','Hola 👋 Bienvenido a SF Precision. Soy parte del equipo de asesoramiento del estudio — contame, ¿en qué puedo ayudarte hoy?');
   }
 }
 advisorToggle.addEventListener('click', openAdvisor);
